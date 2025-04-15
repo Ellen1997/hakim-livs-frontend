@@ -3,7 +3,7 @@ let renderPage = async () => {
     let singleProductCardContainer = document.querySelector(".singleProductCardContainer");
 
     try {
-        let response = await axios.get(`https://be-webshop-2025-fe-two.vercel.app/api/products/${id}`);
+        let response = await axios.get(`https://hakim-livs-backend.vercel.app/api/products/${id}`);
         let product = response.data;
 
         let categoryContainer = document.createElement("div");

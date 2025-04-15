@@ -59,7 +59,7 @@ loginForm.addEventListener("submit", async (e) => {
 
   try {
     const response = await fetch(
-      "https://be-webshop-2025-fe-two.vercel.app/api/users/login",
+      "https://hakim-livs-backend.vercel.app/api/users/login",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -106,7 +106,7 @@ registerForm.addEventListener("submit", async (e) => {
   const passwordValue = password.value;
   try {
     const response = await fetch(
-      "https://be-webshop-2025-fe-two.vercel.app/api/users/register",
+      "https://hakim-livs-backend.vercel.app/api/users/register",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

@@ -17,7 +17,7 @@ const clearInput = () => {
 
 const fetchCategories = async () => {
     try {
-        const response = await axios.get("https://be-webshop-2025-fe-two.vercel.app/api/category");
+        const response = await axios.get("https://hakim-livs-backend.vercel.app/api/category");
         const categories = response.data;
 
         categorySelect.innerHTML = `<option disabled selected>Välj kategori</option>`;
@@ -44,7 +44,7 @@ saveBtn.addEventListener("click", async () => {
     };
 
     try {
-        await axios.post("https://be-webshop-2025-fe-two.vercel.app/api/products/", newProduct);
+        await axios.post("https://hakim-livs-backend.vercel.app/api/products/", newProduct);
         alert("Produkten har lagts till!");
         clearInput();
     } catch (error) {
@@ -64,7 +64,7 @@ document.querySelector("#admin-form-add-category").addEventListener("submit", as
     };
 
     try {
-        await axios.post("https://be-webshop-2025-fe-two.vercel.app/api/category", newCategory)
+        await axios.post("https://hakim-livs-backend.vercel.app/api/category", newCategory)
         alert("Kategori har lagts till!");
         document.querySelector("#admin-input-add-category").value = "";
         document.querySelector("#admin-input-add-category-description").value = "";

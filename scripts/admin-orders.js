@@ -2,7 +2,7 @@ const orderlistContainer = document.querySelector("#admin-orderlist-container");
 
 const renderOrders = async () => {
   try {
-    const response = await axios.get("https://be-webshop-2025-fe-two.vercel.app/api/orders/");
+    const response = await axios.get("https://hakim-livs-backend.vercel.app/api/orders/");
     const orders = response.data;
 
     orders.forEach(order => {

@@ -200,7 +200,7 @@ let paymentStage = (cartProductCardContainer,totalPrice) => {
         console.log(order);
 
         try {
-        const response = await axios.post("https://be-webshop-2025-fe-two.vercel.app/api/orders/",
+        const response = await axios.post("https://hakim-livs-backend.vercel.app/api/orders/",
             order,{
             headers: {
             Authorization: `Bearer ${token}`,
