@@ -73,7 +73,14 @@ loginForm.addEventListener("submit", async (e) => {
     );
     const data = await response.json();
 
-    if (response.ok) {
+    if (!response.ok) {
+      alert(
+        data.error || "Inlogg misslyckades. Du har uppgett ett felaktigt användarnamn eller lösenord" );
+        return;
+     }
+
+
+
       localStorage.setItem("token", data.token);
       document.getElementById("loginText").innerHTML = "Ditt Konto";
       hideModal(loginModal);
@@ -81,12 +88,9 @@ loginForm.addEventListener("submit", async (e) => {
 
       const decodedToken = jwt_decode(data.token);
       if (decodedToken.isAdmin) {
-        window.location.href = "/admin.html"
-      } else {
-        showModal(accountModal)
-        console.log("Statuskod:", response.status);
-        alert(data.error || "Inloggning misslyckades.");
-      }
+        window.location.href = "/admin.html";
+        return;
+      } 
 
       // Om användaren försöker gå till kassan men inte inloggad,skicka vidare till checkout efter inloggning:
       if (localStorage.getItem("goToCheckoutAfterLogin")) {
@@ -98,19 +102,13 @@ loginForm.addEventListener("submit", async (e) => {
 
         hideAndShowProduct(cartContainer, goToCheckoutBtn);
         paymentStage(cartProductCardContainer);
-      } else {
-          showModal(accountModal);
-        }
-    // slut på kassa kommentar
-    } else {
-      alert(
-        data.error ||
-        "Inloggning misslyckades. Du har uppgett ett felaktigt användarnamn eller lösenord"
-      );
+    } 
+    else {
+      showModal(accountModal);
     }
   } catch (error) {
+    alert("Något gick fel vid inloggning.")
     console.error("inloggningsfel:", error)
-    alert("Något gick fel vid inloggning.");
   }
 });
 
