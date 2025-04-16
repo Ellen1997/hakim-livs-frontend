@@ -79,6 +79,13 @@ loginForm.addEventListener("submit", async (e) => {
       hideModal(loginModal);
       // showModal(accountModal);
 
+      const decodedToken = jwt_decode(data.token);
+      if (decodedToken.isAdmin) {
+        window.location.href = "/admin.html"
+      } else {
+        showModal(accountModal)
+      }
+
       // Om användaren försöker gå till kassan men inte inloggad,skicka vidare till checkout efter inloggning:
       if (localStorage.getItem("goToCheckoutAfterLogin")) {
         localStorage.removeItem("goToCheckoutAfterLogin");

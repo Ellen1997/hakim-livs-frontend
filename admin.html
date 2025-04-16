@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Archivo:ital,wght@0,100..900;1,100..900&family=Comfortaa:wght@300..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fredoka:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nanum+Pen+Script&family=Quicksand:wght@300..700&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
     <script src="scripts/admin.js" defer></script>
     <title>Admin</title>
 </head>
@@ -42,7 +43,7 @@
             </form>
 
             <div class="modalLinks">
-              <a href="#" class="forgotPassword">Glömt Lösenord?</a>
+              <!-- <a href="#" class="forgotPassword">Glömt Lösenord?</a> -->
               <button class="btn-create-account btn" id="btn-create-account">Skapa Konto</button>
             </div>
           </div>
@@ -125,6 +126,19 @@
             </div>
         </div>
     </div>
+    <script>
+        window.onload = () => {
+            const token = localStorage.getItem("token");
+            if (!token) {
+                window.location.href = "/";
+            } else {
+                const decodedToken = jwt_decode(token);
+                if (!decodedToken.isAdmin) {
+                    window.location.href = "/";
+                }
+            }
+        };
+    </script>
     
 </body>
 </html>
