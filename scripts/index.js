@@ -20,9 +20,6 @@ const logoutBtn = document.querySelector("#logoutBtn");
 openModalBtn.addEventListener("click", () => {
   const token = localStorage.getItem("token");
   if (token) {
-    const name = localStorage.getItem("name");
-    const accountHeader = document.querySelector("#accountModal h2");
-    accountHeader.textContent = `HÄRLIGT ATT DU ÄR TILLBAKA${name.toUpperCase()}!`;
     showModal(accountModal);
   } else {
     showModal(loginModal);
@@ -78,7 +75,6 @@ loginForm.addEventListener("submit", async (e) => {
 
     if (response.ok) {
       localStorage.setItem("token", data.token);
-      localStorage.setItem("name", data.data.user.email.split("@")[0]);
       document.getElementById("loginText").innerHTML = "Ditt Konto";
       hideModal(loginModal);
       // showModal(accountModal);
@@ -132,7 +128,6 @@ registerForm.addEventListener("submit", async (e) => {
 
     if (response.ok) {
       localStorage.setItem("token", data.token);
-      localStorage.setItem("name", data.data.user.email.split("@")[0]);
       hideModal(createAccountModal);
       
 
@@ -159,7 +154,6 @@ registerForm.addEventListener("submit", async (e) => {
 
 logoutBtn.addEventListener("click", () => {
   localStorage.removeItem("token");
-  localStorage.removeItem("name");
   document.getElementById("loginText").innerHTML = "Logga in";
   hideModal(accountModal);
   alert("Du har loggats ut.");
