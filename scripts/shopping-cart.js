@@ -223,14 +223,12 @@ let paymentStage = (cartProductCardContainer,totalPrice) => {
         let p1 = document.createElement("p");
         p1.innerText = "På Mina sidor kan du se din orderbekräftelse.";
         let p2 = document.createElement("p");
-        p2.innerText = "Hakim packar nu din order och du kan hämta den inom 2 dagar."
-        let p3 = document.createElement("p");
-        p3.innerText = "Du får ett sms när orden finns redo att hämta på ditt anginva mobilnummer.";
+        p2.innerText = "Hakim packar nu din order. Du får ett sms när orden finns redo att hämta"
         cartProductCardContainer.style.visibility = "visible";
         cartProductCardContainer.removeAttribute("inert");
         cartProductCardContainer.innerHTML = "";
         cartProductCardContainer.append(thankyouText);
-        thankyouText.append(thankYou, p1, p2, p3);
+        thankyouText.append(thankYou, p1, p2);
     } catch (error) {
         console.error("Något gick fel vid beställningen:", error);
         alert("Kunde inte slutföra köpet. Försök igen senare.");
