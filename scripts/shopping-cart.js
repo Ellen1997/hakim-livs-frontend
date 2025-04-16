@@ -228,7 +228,7 @@ let paymentStage = (cartProductCardContainer,totalPrice) => {
         cartProductCardContainer.removeAttribute("inert");
         cartProductCardContainer.innerHTML = "";
         cartProductCardContainer.append(thankyouText);
-        thankyouText.append(thankYou, p1, p2);
+        thankyouText.append(thankYou, p1, p2, p3);
     } catch (error) {
         console.error("Något gick fel vid beställningen:", error);
         alert("Kunde inte slutföra köpet. Försök igen senare.");
