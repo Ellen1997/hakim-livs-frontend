@@ -1,4 +1,5 @@
 let renderCart = () => {
+
     let cartContainer = document.querySelector(".cartContainer");
     let cartProductCardContainer = document.querySelector(".cartProductCardContainer");
 
@@ -8,6 +9,13 @@ let renderCart = () => {
     
     if (cart.length === 0) {
         cartContainer.innerHTML = "<p>Din varukorg är tom.</p>";
+
+        let amountProducts = document.querySelector("#amountProducts");
+        let totalSumProducts = document.querySelector("#totalSumProducts");
+        if (amountProducts && totalSumProducts) {
+            amountProducts.innerHTML = "0 st";
+            totalSumProducts.innerHTML = "<b>0 kr</b>";
+        }
         return;
     }
 
@@ -49,16 +57,14 @@ let renderCart = () => {
         let trash = document.createElement("i");
         trash.classList.add("trash");
         trash.style.cursor = "pointer";
-        trash.innerHTML = `
-        <i class="fa-solid fa-trash" style="color: #011e62;"></i>
-        `;
+        trash.innerHTML = `<i class="fa-solid fa-trash" style="color: #011e62;"></i>`;
         trash.addEventListener("click", () => {
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
             let updatedCart = cart.filter(cartItem => cartItem._id !== item._id);
             localStorage.setItem("cart", JSON.stringify(updatedCart));
 
-            renderCart();
-        })
+            renderCart(); 
+        });
     
         let hr = document.createElement("hr");
         hr.style.width = 100;
@@ -67,9 +73,8 @@ let renderCart = () => {
         imgAndProductInfo.append(productImg, namePriceAmountDiv);
         counterProductContainer.append(productAmount);
         cartProductAndButton.append(imgAndProductInfo, counterProductContainer);
-        namePriceAmountDiv.append(productName,productPrice,itemTotalPrice);
-        cartContainer.append(cartProductAndButton,trash, hr);
-        
+        namePriceAmountDiv.append(productName, productPrice, itemTotalPrice);
+        cartContainer.append(cartProductAndButton, trash, hr);
 
         totalItems += item.amount;
         totalPrice += item.amount * item.price;
@@ -78,35 +83,32 @@ let renderCart = () => {
     let cartButtonDiv = document.createElement("div");
     cartButtonDiv.classList.add("cartButtonDiv");
     let goToCheckoutBtn = document.createElement("button");
-    goToCheckoutBtn.classList.add("button");
-    goToCheckoutBtn.classList.add("goToCheckoutBtn");
+    goToCheckoutBtn.classList.add("button", "goToCheckoutBtn");
     goToCheckoutBtn.innerHTML = "Gå till kassan";
     goToCheckoutBtn.addEventListener("click", () => {
         const token = localStorage.getItem("token");
         
-        if(!token) {
+        if (!token) {
             localStorage.setItem("goToCheckoutAfterLogin", "true");
             showModal(loginModal);
             return;
         }
 
-        hideAndShowProduct(cartContainer,goToCheckoutBtn);
-        paymentStage(cartProductCardContainer,totalPrice);
-    })
+        hideAndShowProduct(cartContainer, goToCheckoutBtn);
+        paymentStage(cartProductCardContainer, totalPrice);
+    });
 
     cartButtonDiv.append(goToCheckoutBtn);
     cartContainer.append(cartButtonDiv);
 
-
-    let totalContainer = document.createElement("div");
-    totalContainer.classList.add("totalContainer");
-
     let amountProducts = document.querySelector("#amountProducts");
-    amountProducts.innerHTML = `${totalItems} st`;
-
     let totalSumProducts = document.querySelector("#totalSumProducts");
-    totalSumProducts.innerHTML = `<b>${totalPrice} kr </b>`;
-}
+
+    if (amountProducts && totalSumProducts) {
+        amountProducts.innerHTML = `${totalItems} st`;
+        totalSumProducts.innerHTML = `<b>${totalPrice} kr</b>`;
+    }
+};
 
 let hideAndShowProduct = (cartContainer,goToCheckoutBtn) => {
     goToCheckoutBtn.remove();
@@ -166,7 +168,7 @@ let paymentStage = (cartProductCardContainer,totalPrice) => {
     optionsContainer.classList.add("optionsContainer");
 
     let klarnaImg = document.createElement("img");
-    klarnaImg.src = "/public/Bilder/klarna.png";
+    klarnaImg.src = "Bilder/klarna.png";
     klarnaImg.style.height = "20px";
     klarnaImg.style.width = "20px";
 
