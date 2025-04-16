@@ -84,6 +84,8 @@ loginForm.addEventListener("submit", async (e) => {
         window.location.href = "/admin.html"
       } else {
         showModal(accountModal)
+        console.log("Statuskod:", response.status);
+        alert(data.error || "Inloggning misslyckades.");
       }
 
       // Om användaren försöker gå till kassan men inte inloggad,skicka vidare till checkout efter inloggning:
@@ -107,6 +109,7 @@ loginForm.addEventListener("submit", async (e) => {
       );
     }
   } catch (error) {
+    console.error("inloggningsfel:", error)
     alert("Något gick fel vid inloggning.");
   }
 });
