@@ -134,4 +134,16 @@ let updateCartIcon = () => {
     redBox.innerHTML = totalItems;
 };
 
+
 renderPage();
+
+logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("token");
+    document.getElementById("loginText").innerHTML = "Logga in";
+    hideModal(accountModal);
+    alert("Du har loggats ut.");
+  });
+  
+  if (localStorage.getItem("token")) {
+    document.getElementById("loginText").innerHTML = "Ditt Konto";
+  }
