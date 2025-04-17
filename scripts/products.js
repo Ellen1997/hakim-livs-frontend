@@ -135,9 +135,9 @@ let updateCartIcon = () => {
     redBox.innerHTML = totalItems;
 
     if (totalItems === 0) {
-        redBox.style.display = "none";
+        redBox.style.visibility = "hidden";
     } else {
-        redBox.style.display = "block";
+        redBox.style.visibility = "visible";
     }
 };
 
