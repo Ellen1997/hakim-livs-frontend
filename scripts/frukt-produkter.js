@@ -132,6 +132,13 @@ let updateCartIcon = () => {
     }
 
     redBox.innerHTML = totalItems;
+    if (totalItems === 0) {
+        redBox.style.visibility = "hidden";
+    } else {
+        redBox.style.visibility = "visible";
+    }
 };
+
+document.addEventListener("DOMContentLoaded", updateCartIcon);
 
 renderPage();
