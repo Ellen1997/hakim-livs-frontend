@@ -170,3 +170,4 @@ logoutBtn.addEventListener("click", () => {
 if (localStorage.getItem("token")) {
   document.getElementById("loginText").innerHTML = "Ditt Konto";
 }
+ 

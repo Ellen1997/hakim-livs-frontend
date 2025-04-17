@@ -1,4 +1,4 @@
-let renderCart = () => {
+let renderCart = () => { 
 
     let cartContainer = document.querySelector(".cartContainer");
     let cartProductCardContainer = document.querySelector(".cartProductCardContainer");
