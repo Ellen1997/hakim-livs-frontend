@@ -11,7 +11,7 @@ let renderPage = async () => {
 
             let linkProductCard = document.createElement("div");
             linkProductCard.classList.add("linkProductCard");
-
+ 
             let productImg = document.createElement("img");
             productImg.src = product.img;
             productImg.classList.add("productImg");

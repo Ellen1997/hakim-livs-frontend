@@ -154,7 +154,7 @@ registerForm.addEventListener("submit", async (e) => {
     } else {
       alert(data.error || "kunde inte skapa konto.");
     }
-  } catch (error) {
+  } catch (error) { 
     alert("Något gick fel vid registrering.");
   }
 });

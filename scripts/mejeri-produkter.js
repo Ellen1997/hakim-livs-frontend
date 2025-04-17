@@ -5,7 +5,7 @@ let renderPage = async () => {
         let response = await axios.get('https://hakim-livs-backend.vercel.app/api/products/?category=dairy');
         let products = response.data;
 
-        products.forEach(product => {
+        products.forEach(product => { 
             let productCard = document.createElement("div");
             productCard.classList.add("productCard");
 
