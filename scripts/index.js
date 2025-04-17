@@ -136,6 +136,8 @@ registerForm.addEventListener("submit", async (e) => {
 
     if (response.ok) {
       localStorage.setItem("token", data.token);
+      console.log(data.token)
+      document.getElementById("loginText").innerHTML = "Ditt Konto";
       hideModal(createAccountModal);
       
 
