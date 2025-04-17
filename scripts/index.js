@@ -193,3 +193,7 @@ function updateCountRefresh(){
     if (existingBadge) existingBadge.remove()
   }
 }
+
+window.onload = () => {
+  updateCountRefresh();
+}
