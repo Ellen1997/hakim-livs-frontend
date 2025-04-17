@@ -5,7 +5,7 @@ let renderPage = async () => {
         let response = await axios.get('https://hakim-livs-backend.vercel.app/api/products/');
         let products = response.data;
 
-        products.forEach(product => {
+        products.forEach(product => { 
             let productCard = document.createElement("div");
             productCard.classList.add("productCard");
 
@@ -125,6 +125,7 @@ let updateCartIcon = () => {
     let totalItems = cart.reduce((sum, item) => sum + item.amount, 0);
 
     let redBox = shoppingBtn.querySelector(".redBox");
+
     if (!redBox) {
         redBox = document.createElement("div");
         redBox.classList.add("redBox");
@@ -132,6 +133,14 @@ let updateCartIcon = () => {
     }
 
     redBox.innerHTML = totalItems;
+
+    if (totalItems === 0) {
+        redBox.style.display = "none";
+    } else {
+        redBox.style.display = "block";
+    }
 };
+
+document.addEventListener("DOMContentLoaded", updateCartIcon);
 
 renderPage();
