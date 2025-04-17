@@ -170,3 +170,26 @@ logoutBtn.addEventListener("click", () => {
 if (localStorage.getItem("token")) {
   document.getElementById("loginText").innerHTML = "Ditt Konto";
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateCountRefresh();
+});
+
+function updateCountRefresh(){
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const totalProducts = cart.reduce((acc, product) => acc + product.quantity, 0);
+  
+  let cartBtn = document.querySelector(".shoppingcart");
+  let existingBadge = cartBtn.querySelector(".cart-count-badge");
+
+  if(totalProducts > 0) {
+    if (!existingBadge) {
+      existingBadge = document.createElement("span");
+      existingBadge.classList.add("cart-count-badge");
+      cartBtn.appendChild(existingBadge);
+    }
+    existingBadge.textContent = totalProducts;
+  } else {
+    if (existingBadge) existingBadge.remove()
+  }
+}
