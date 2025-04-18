@@ -230,7 +230,7 @@ let paymentStage = (cartProductCardContainer,totalPrice) => {
         cartProductCardContainer.append(thankyouText);
         thankyouText.append(thankYou, p1, p2);
     } catch (error) {
-        console.error("Något gick fel vid beställningen:", error);
+        console.error("Något gick fel vid beställningen:", error.response || error.message);
         alert("Kunde inte slutföra köpet. Försök igen senare.");
         }
     });
