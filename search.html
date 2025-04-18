@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head> 
-    <meta charset="UTF-8" />
+  <head>
+    <meta charset="UTF-8" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hakim Livs</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,7 +23,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
     
-    <script src="scripts/products.js" defer></script>
+    <script src="scripts/search.js" defer></script>
     <link rel="stylesheet" href="style.css" />
     <script src="scripts/index.js" defer></script>
   </head>
@@ -38,14 +38,10 @@
             width="300"
         /></a>
       </div>
-      
-      <form class="search-container">
+      <div class="search-container">
         <input type="text" placeholder="Sök..." class="search-input" />
-        <button type="submit" class="search-button">
-          <i class="fa-solid fa-magnifying-glass search-icon"></i>
-        </button>
-      </form>
-    
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      </div>
 
       <div class="loginUser">
         <button id="userBtn">
@@ -171,7 +167,7 @@
 
       <div class="product-mainContainer">
         <div class="product-header">
-          <h2>ALLA PRODUKTER</h2>
+          <h2>PRODUKTER</h2>
         </div>
         <div class="productCardsContainer"></div>
       </div>

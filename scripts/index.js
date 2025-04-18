@@ -172,4 +172,22 @@ logoutBtn.addEventListener("click", () => {
 if (localStorage.getItem("token")) {
   document.getElementById("loginText").innerHTML = "Ditt Konto";
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const searchForm = document.querySelector(".search-container");
+  const searchInput = document.querySelector(".search-input");
+
+  if (searchForm && searchInput) {
+    searchForm.addEventListener("submit", (e) => {
+      e.preventDefault(); 
+
+      const searchTerm = searchInput.value.trim();
+
+      if (searchTerm) {
+        sessionStorage.setItem("term", searchTerm);
+        window.location.href = "search.html";
+      }
+    });
+  }
+});
  
