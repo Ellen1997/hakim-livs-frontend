@@ -37,9 +37,7 @@ openModalBtn.addEventListener("click", () => {
     localStorage.removeItem("token");
     document.getElementById("loginText").innerHTML = "Logga in";
     document.getElementById("adminLink").style.display = "none";
-    setTimeout(() => {
-        window.location.href = "/index.html";
-      }, 400);
+    window.location.href = "/index.html";
   });
 
 
