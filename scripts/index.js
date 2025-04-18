@@ -138,6 +138,14 @@ registerForm.addEventListener("submit", async (e) => {
     if (response.ok) {
       localStorage.setItem("token", data.token);
       console.log(data.token)
+
+      const decodedToken = jwt_decode(data.token);
+      if (decodedToken.isAdmin) {
+        document.getElementById("adminLink").style.display = "block";
+        window.location.href = "/admin.html";
+        return;
+      } 
+
       document.getElementById("loginText").innerHTML = "Ditt Konto";
       hideModal(createAccountModal);
       
@@ -145,6 +153,7 @@ registerForm.addEventListener("submit", async (e) => {
       // Om användaren försöker gå till kassan men inte registrerad,skicka vidare till checkout efter registrerad:
       if (localStorage.getItem("goToCheckoutAfterLogin")) {
         localStorage.removeItem("goToCheckoutAfterLogin");
+
         const cartContainer = document.querySelector(".cartContainer");
         const goToCheckoutBtn = document.querySelector(".goToCheckoutBtn");
         const cartProductCardContainer = document.querySelector(".cartProductCardContainer");
