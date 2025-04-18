@@ -3,7 +3,7 @@ let renderPage = async () => {
     let productCardsContainer = document.querySelector(".productCardsContainer");
 
     try {
-        let response = await axios.get(`https://hakim-livs-backend.vercel.app/api/products/?q=${searchterm}`);
+        let response = await axios.get(`https://hakim-livs-backend.vercel.app/api/products/search?q=${searchterm}`);
         let products = response.data;
 
         products.forEach(product => { 
