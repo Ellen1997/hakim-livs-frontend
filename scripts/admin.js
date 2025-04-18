@@ -19,7 +19,7 @@ openModalBtn.addEventListener("click", () => {
     } 
   });
 
-  function showModal(modal) {
+  function showModal(modal) { 
     modal?.classList.add("show");
     modal?.classList.remove("hide");
   }
@@ -37,9 +37,13 @@ openModalBtn.addEventListener("click", () => {
     localStorage.removeItem("token");
     document.getElementById("loginText").innerHTML = "Logga in";
     document.getElementById("adminLink").style.display = "none";
-    window.location.href = "/index.html";
-  });
+    hideModal(accountModal);
 
+    if (!token) {
+        window.location.href = "/index.html";
+        return;
+      } 
+  });
 
 
 const clearInput = () => {
