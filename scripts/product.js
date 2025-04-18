@@ -10,7 +10,7 @@ let renderPage = async () => {
         categoryContainer.classList.add("categoryContainer");
 
         let categoryBar = document.createElement("p");
-        categoryBar.innerHTML = `${product.category} > ${product.name}`;
+        categoryBar.innerHTML = `${product.name}`;
         categoryContainer.appendChild(categoryBar);
 
         let imgAndProductInfoContainer = document.createElement("div");
@@ -149,6 +149,10 @@ let updateCartIcon = () => {
 
     redBox.innerHTML = totalItems;
 };
+
+if (localStorage.getItem("token")) {
+    document.getElementById("loginText").innerHTML = "Ditt Konto";
+  }
 
 renderPage();
 updateCartIcon();
