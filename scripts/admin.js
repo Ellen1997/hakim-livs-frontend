@@ -38,11 +38,8 @@ openModalBtn.addEventListener("click", () => {
     document.getElementById("loginText").innerHTML = "Logga in";
     document.getElementById("adminLink").style.display = "none";
     hideModal(accountModal);
-
-    if (!token) {
-        window.location.href = "/index.html";
-        return;
-      } 
+    window.location.href = "/";
+        
   });
 
 
