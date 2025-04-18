@@ -18,10 +18,6 @@ openModalBtn.addEventListener("click", () => {
       showModal(accountModal);
     } 
   });
-  
-  closeModal.addEventListener("click", () => {
-    hideModal(accountModal);
-  });
 
   function showModal(modal) {
     modal?.classList.add("show");
