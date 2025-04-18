@@ -4,7 +4,7 @@ const price = document.querySelector("#admin-product-price");
 const stock = document.querySelector("#admin-product-stock");
 const categorySelect = document.querySelector("#admin-dropdown-category");
 const img = document.querySelector("#admin-product-image");
-const saveBtn = document.querySelector("#admin-save-button");
+const saveBtn = document.querySelector("#admin-save-button"); 
 
 const clearInput = () => {
     productName.value = "";

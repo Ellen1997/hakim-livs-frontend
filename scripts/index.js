@@ -7,7 +7,7 @@ const closeModal = document.querySelector("#closeModal");
 const closeCreateAccountModal = document.querySelector(
   "#closeCreateAccountModal"
 );
-const closeAccountModal = document.querySelector("#closeAccountModal");
+const closeAccountModal = document.querySelector("#closeAccountModal"); 
 const createAccountBtn = document.querySelector("#createAccountBtn");
 const loginForm = document.querySelector(".loginForm");
 
@@ -88,6 +88,7 @@ loginForm.addEventListener("submit", async (e) => {
 
       const decodedToken = jwt_decode(data.token);
       if (decodedToken.isAdmin) {
+        document.getElementById("adminLink").style.display = "block";
         window.location.href = "/admin.html";
         return;
       } 
