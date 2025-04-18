@@ -78,5 +78,18 @@
           </div>
         </div>
     </div>
+    <script>
+      window.onload = () => {
+          const token = localStorage.getItem("token");
+          if (!token) {
+              window.location.href = "/";
+          } else {
+              const decodedToken = jwt_decode(token);
+              if (!decodedToken.isAdmin) {
+                  window.location.href = "/";
+              }
+          }
+      };
+  </script>
 </body>
 </html>
