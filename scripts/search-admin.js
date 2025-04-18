@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
     const searchTermAdmin = searchInput.value.trim();
   
-        if (searchTerm) {
+        if (searchTermAdmin) {
           sessionStorage.setItem("termAdmin", searchTermAdmin);
           window.location.href = "search-admin.html";
         }
