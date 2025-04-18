@@ -129,7 +129,7 @@ let updateCartIcon = () => {
     if (!redBox) {
         redBox = document.createElement("div");
         redBox.classList.add("redBox");
-        shoppingBtn.appendChild(redBox);
+        shoppingBtn.appendChild(redBox); 
     }
 
     redBox.innerHTML = totalItems;

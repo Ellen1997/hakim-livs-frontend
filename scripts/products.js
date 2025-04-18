@@ -1,6 +1,6 @@
 let renderPage = async () => {
     let productCardsContainer = document.querySelector(".productCardsContainer");
-
+ 
     try {
         let response = await axios.get('https://hakim-livs-backend.vercel.app/api/products/');
         let products = response.data;
