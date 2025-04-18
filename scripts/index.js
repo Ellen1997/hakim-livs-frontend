@@ -177,11 +177,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchForm = document.querySelector(".search-container");
   const searchInput = document.querySelector(".search-input");
 
-  if (searchForm && searchInput) {
-    searchForm.addEventListener("submit", (e) => {
+  searchForm.addEventListener("submit", (e) => {
       e.preventDefault(); 
 
-      const searchTerm = searchInput.value.trim();
+  const searchTerm = searchInput.value.trim();
 
       if (searchTerm) {
         sessionStorage.setItem("term", searchTerm);
@@ -189,5 +188,4 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-});
- 
+);
