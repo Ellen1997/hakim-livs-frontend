@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="scripts/search-admin.js" defer></script>
+    <script src="scripts/admin.js" defer></script>
 
     <title>Produktlista</title>
 </head>
@@ -23,16 +24,27 @@
           <input type="text" placeholder="Tryck enter för att söka..." class="search-input" />
           <i class="fa-solid fa-magnifying-glass search-icon"></i>
         </form>
-        
+
         <div class="loginUser">
-          <button id="userBtn">
-            <a href="admin.html" id="openModalBtn" class="login">
-              <img src="Bilder/person.svg" alt="User icon" />
-              <span id="loginText">Hej Hakim!</span>
-            </a>
-          </button>
+            <button id="userBtn">
+              <a href="#" id="openModalBtn" class="login">
+                <img src="Bilder/person.svg" alt="User icon" />
+                <span id="loginText">Hej Hakim!</span>
+              </a>
+            </button>
+          </div>
+        
+        <div class="modal" id="accountModal">
+            <div class="modalContainer" id="accountModalContainer">
+              <span id="closeAccountModal" class="close">&times;</span>
+              <h2>HÄRLIGT ATT DU ÄR HÄR, HAKIM!</h2>
+              
+    
+              <button class="inlogBox" id="logoutBtn">Logga ut</button>
+            </div>
         </div>
         
+    
     </header>
     <div class="admin-page-container">
         <div class="admin-menu-container">
@@ -63,5 +75,18 @@
             <div id="admin-all-products-container" class="products-list-container"></div>
         </div>
     </div>
+    <script>
+        window.onload = () => {
+            const token = localStorage.getItem("token");
+            if (!token) {
+                window.location.href = "/";
+            } else {
+                const decodedToken = jwt_decode(token);
+                if (!decodedToken.isAdmin) {
+                    window.location.href = "/";
+                }
+            }
+        };
+    </script>
 </body>
 </html>
