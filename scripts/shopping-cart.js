@@ -106,7 +106,7 @@ let renderCart = () => {
 
     if (amountProducts && totalSumProducts) {
         amountProducts.innerHTML = `${totalItems} st`;
-        totalSumProducts.innerHTML = `<b>${totalPrice} kr</b>`;
+        totalSumProducts.innerHTML = `<b>${totalPrice.toFixed(2)} kr</b>`;
     }
 };
 
@@ -197,7 +197,7 @@ let paymentStage = (cartProductCardContainer,totalPrice) => {
             quantity: item.amount,
             price: item.price
         })),
-          total: totalPrice,
+          total: parseFloat(totalPrice.toFixed(2)),
         };
         console.log(order);
 

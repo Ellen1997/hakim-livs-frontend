@@ -1,7 +1,8 @@
 let renderPage = async () => {
+    const searchtermAdmin = sessionStorage.getItem("termAdmin"); 
     let productCardsContainer = document.querySelector("#admin-all-products-container"); 
     try {
-        let response = await axios.get("https://hakim-livs-backend.vercel.app/api/products/");
+        let response = await axios.get(`https://hakim-livs-backend.vercel.app/api/products/search?q=${searchtermAdmin}`);
         let products = response.data;
         console.log("Antal produkter:", products.length);
         console.log("Produkter:", products);
@@ -174,7 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
     const searchTermAdmin = searchInput.value.trim();
   
-        if (searchTermAdmin) {
+        if (searchTerm) {
           sessionStorage.setItem("termAdmin", searchTermAdmin);
           window.location.href = "search-admin.html";
         }

@@ -1,5 +1,5 @@
 let renderPage = async () => {
-    const searchterm = sessionStorage.getItem("term");
+    const searchterm = sessionStorage.getItem("term"); 
     let productCardsContainer = document.querySelector(".productCardsContainer");
 
     try {
