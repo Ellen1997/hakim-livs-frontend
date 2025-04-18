@@ -6,14 +6,13 @@ let renderPage = async () => {
         let response = await axios.get(`https://hakim-livs-backend.vercel.app/api/products/search?q=${searchterm}`);
         let products = response.data;
 
-        if (products.length === 0) {
+        if (products.message && products.message === "Inga produkter matchade sökningen") {
             let noResult = document.createElement("h4");
             noResult.innerText = "Inga produkter matchade sökordet.";
             noResult.classList.add("no-result-message");
             productCardsContainer.appendChild(noResult);
             return;
         }
-
         products.forEach(product => { 
             let productCard = document.createElement("div");
             productCard.classList.add("productCard");
