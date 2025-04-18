@@ -888,3 +888,21 @@ footer.footer {
   border-radius: 20px;
 }
 
+
+.om-oss-titel {
+  font-size: 2rem;
+  color: var(--title-color);
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.about-section {
+  background-color: var(--box-color);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  line-height: 1.6;
+}
+
+
+
