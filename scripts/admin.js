@@ -6,6 +6,41 @@ const categorySelect = document.querySelector("#admin-dropdown-category");
 const img = document.querySelector("#admin-product-image");
 const saveBtn = document.querySelector("#admin-save-button"); 
 
+const accountModal = document.querySelector("#accountModal");
+const openModalBtn = document.querySelector("#openModalBtn");
+const closeModal = document.querySelector("#closeModal");
+const closeAccountModal = document.querySelector("#closeAccountModal"); 
+
+openModalBtn.addEventListener("click", () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      showModal(accountModal);
+    } 
+  });
+  
+  closeModal.addEventListener("click", () => {
+    hideModal(accountModal);
+  });
+
+  function showModal(modal) {
+    modal?.classList.add("show");
+    modal?.classList.remove("hide");
+  }
+  
+  function hideModal(modal) {
+    modal?.classList.remove("show");
+    modal?.classList.add("hide");
+  }
+
+  logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("token");
+    document.getElementById("loginText").innerHTML = "Logga in";
+    document.getElementById("adminLink").style.display = "none";
+    hideModal(accountModal);
+    window.location.href = "/index.html";
+    alert("Du har loggats ut.");
+  });
+
 const clearInput = () => {
     productName.value = "";
     description.value = "";

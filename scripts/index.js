@@ -187,7 +187,7 @@ if (localStorage.getItem("token")) {
   const decodedToken = jwt_decode(token);
   if (decodedToken.isAdmin) {
     document.getElementById("adminLink").style.display = "block";
-  }
+  } 
 }
 
 document.addEventListener("DOMContentLoaded", () => {
