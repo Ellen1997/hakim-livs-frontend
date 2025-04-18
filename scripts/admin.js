@@ -8,8 +8,9 @@ const saveBtn = document.querySelector("#admin-save-button");
 
 const accountModal = document.querySelector("#accountModal");
 const openModalBtn = document.querySelector("#openModalBtn");
-const closeModal = document.querySelector("#closeModal");
-const closeAccountModal = document.querySelector("#closeAccountModal"); 
+const closeAccountModal = document.querySelector("#closeAccountModal");
+const logoutBtn = document.querySelector("#logoutBtn");
+
 
 openModalBtn.addEventListener("click", () => {
     const token = localStorage.getItem("token");
@@ -40,6 +41,12 @@ openModalBtn.addEventListener("click", () => {
     window.location.href = "/index.html";
     alert("Du har loggats ut.");
   });
+
+  closeAccountModal.addEventListener("click", () => {
+    hideModal(accountModal);
+  });
+
+
 
 const clearInput = () => {
     productName.value = "";
