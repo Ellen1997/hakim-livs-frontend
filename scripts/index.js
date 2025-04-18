@@ -175,6 +175,7 @@ registerForm.addEventListener("submit", async (e) => {
 logoutBtn.addEventListener("click", () => {
   localStorage.removeItem("token");
   document.getElementById("loginText").innerHTML = "Logga in";
+  document.getElementById("adminLink").style.display = "none";
   hideModal(accountModal);
   alert("Du har loggats ut.");
 });
