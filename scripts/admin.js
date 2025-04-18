@@ -29,17 +29,17 @@ openModalBtn.addEventListener("click", () => {
     modal?.classList.add("hide");
   }
 
+  closeAccountModal.addEventListener("click", () => {
+    hideModal(accountModal);
+  });
+
   logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("token");
     document.getElementById("loginText").innerHTML = "Logga in";
     document.getElementById("adminLink").style.display = "none";
-    hideModal(accountModal);
-    window.location.href = "/index.html";
-    alert("Du har loggats ut.");
-  });
-
-  closeAccountModal.addEventListener("click", () => {
-    hideModal(accountModal);
+    setTimeout(() => {
+        window.location.href = "/index.html";
+      }, 400);
   });
 
 
