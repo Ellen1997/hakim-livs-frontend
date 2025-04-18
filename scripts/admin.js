@@ -36,7 +36,6 @@ openModalBtn.addEventListener("click", () => {
   logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("token");
     document.getElementById("loginText").innerHTML = "Logga in";
-    document.getElementById("adminLink").style.display = "none";
     hideModal(accountModal);
     window.location.href = "/";
         
