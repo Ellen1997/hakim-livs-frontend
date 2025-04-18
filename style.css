@@ -121,6 +121,11 @@ input {
   color: var(--button-blue);
 }
 
+.no-result-message {
+  color: var(--title-color);
+  font-weight: 900;
+  font-style: italic;
+}
 
 #userBtn {
   background: none;
