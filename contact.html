@@ -1,11 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>KONTAKTINFO HAKIM</h1>
-</body>
+<html lang="sv">
+  <head> 
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontakt - Hakim Livs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/96ad95103a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo-container">
+        <a href="index.html" class="logo">
+          <img src="Bilder/HAKIM LIVS.png" alt="Hakim Livs logotyp" class="logo" width="300"/>
+        </a>
+      </div>
+
+      <form class="search-container">
+        <input type="text" placeholder="Sök produkter..." class="search-input" />
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      </form>
+
+      <div class="loginUser">
+        <button id="userBtn">
+          <a href="#" class="login">
+            <img src="Bilder/person.svg" alt="User icon" />
+            <span id="loginText">Meny</span>
+          </a>
+        </button>
+      </div>
+
+      <button class="button shoppingcart">
+        <a href="shopping-cart.html" class="cart">
+          <span id="btn-text">Till kassan</span>
+          <i class="fa-solid fa-cart-shopping shoppingcart"></i>
+        </a>
+      </button>
+    </header>
+
+    <div class="productPage-mainContainer">
+      <aside class="sidebar">
+        <div class="meny">
+          <h3>REKOMMENDERAT</h3>
+          <ul>
+            <li><a href="admin.html" style="display: none;"><i class="fa-solid fa-shield-alt"></i> Admin Panel</a></li>
+            <li><a href="#"><i class="fa-solid fa-fire"></i> Aktuellt just nu</a></li>
+            <li><a href="index.html"><i class="fa-solid fa-list"></i> Alla produkter</a></li>
+          </ul>
+        </div>
+        <div class="meny">
+          <h3>KATEGORIER</h3>
+          <ul>
+            <li><a href="mejeri.html"><i class="fa-solid fa-cow"></i> Mejeri</a></li>
+            <li><a href="kott.html"><i class="fa-solid fa-drumstick-bite"></i> Kött</a></li>
+            <li><a href="kolonial.html"><i class="fa-solid fa-bread-slice"></i> Kolonial</a></li>
+            <li><a href="vegetariskt.html"><i class="fa-solid fa-carrot"></i> Vegetariskt</a></li>
+            <li><a href="fryst.html"><i class="fa-solid fa-snowflake"></i> Fryst</a></li>
+            <li><a href="fardigratter.html"><i class="fa-solid fa-utensils"></i> Färdigrätter</a></li>
+            <li><a href="frukt.html"><i class="fa-solid fa-apple-whole"></i> Frukt</a></li>
+            <li><a href="gronsaker.html"><i class="fa-solid fa-seedling"></i> Grönsaker</a></li>
+            <li><a href="dricka.html"><i class="fa-solid fa-bottle-water"></i> Dricka</a></li>
+            <li><a href="snacks.html"><i class="fa-solid fa-cookie-bite"></i> Snacks</a></li>
+            <li><a href="glutenfritt.html"><i class="fa-solid fa-ban"></i> Glutenfritt</a></li>
+          </ul>
+        </div>
+      </aside>
+
+      <div class="product-mainContainer">
+        <div class="product-header">
+          <h2 class="om-oss-titel">Kontakta oss</h2>
+        </div>
+        <section class="about-section">
+          <p>
+            Har du frågor, synpunkter eller bara vill säga hej? Du är alltid välkommen att kontakta oss!
+          </p>
+          <p><strong>📍 Adress:</strong> Kungsgatan 45, 111 56 Stockholm</p>
+          <p><strong>📞 Telefon:</strong> 08-123 456 78</p>
+          <p><strong>✉️ E-post:</strong> kundservice@hakimlivs.se</p>
+          <p><strong>🕒 Öppettider:</strong> Mån–Fre 08:00–20:00 | Lör–Sön 10:00–18:00</p>
+        </section>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <p id="footer-rights">&copy; 2024 Hakim Livs. All rights reserved.</p>
+        <div class="footer-icons-container">
+          <a href="https://www.facebook.com/" class="footer-icons">
+            <img src="Bilder/facebook.svg" alt="Facebook icon" width="40px" />
+          </a>
+          <a href="https://www.instagram.com/" class="footer-icons">
+            <img src="Bilder/instagram.svg" alt="Instagram icon" width="40px" />
+          </a>
+          <a href="https://x.com/" class="footer-icons">
+            <img src="Bilder/x-twitter.svg" alt="Twitter icon" width="40px" />
+          </a>
+          <a href="https://www.google.com/" class="footer-icons">
+            <img src="Bilder/google.svg" alt="Google icon" width="40px" />
+          </a>
+        </div>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
