@@ -140,6 +140,7 @@ registerForm.addEventListener("submit", async (e) => {
       console.log(data.token)
 
       const decodedToken = jwt_decode(data.token);
+      localStorage.setItem("isAdmin", decodedToken.isAdmin);
       if (decodedToken.isAdmin) {
         document.getElementById("adminLink").style.display = "block";
         window.location.href = "/admin.html";
@@ -185,6 +186,7 @@ if (localStorage.getItem("token")) {
 
   const token = localStorage.getItem("token");
   const decodedToken = jwt_decode(token);
+  localStorage.setItem("isAdmin", decodedToken.isAdmin);
   if (decodedToken.isAdmin) {
     document.getElementById("adminLink").style.display = "block";
   } 
