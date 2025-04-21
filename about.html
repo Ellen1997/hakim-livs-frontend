@@ -7,36 +7,74 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Archivo:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
     <script src="https://kit.fontawesome.com/96ad95103a.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <script src="scripts/index.js" defer></script>
   </head>
   <body>
     <header class="header">
       <div class="logo-container">
         <a href="index.html" class="logo">
-          <img
-            src="Bilder/HAKIM LIVS.png"
-            alt="Hakim Livs logotyp"
-            class="logo"
-            width="300"
-        /></a>
+          <img src="Bilder/HAKIM LIVS.png" alt="Hakim Livs logotyp" class="logo" width="300" />
+        </a>
       </div>
 
       <form class="search-container">
-        <input type="text" placeholder="Sök produkter..." class="search-input" />
+        <input type="text" placeholder="Tryck enter för att söka..." class="search-input" />
         <i class="fa-solid fa-magnifying-glass search-icon"></i>
       </form>
 
       <div class="loginUser">
         <button id="userBtn">
-          <a href="#" class="login">
+          <a href="#" id="openModalBtn" class="login">
             <img src="Bilder/person.svg" alt="User icon" />
-            <span id="loginText">Meny</span>
+            <span id="loginText">Logga in</span>
           </a>
         </button>
+      </div>
+
+      <!-- LOGIN MODAL -->
+      <div id="loginModal" class="modal">
+        <div class="modalContainer">
+          <span id="closeModal" class="close">&times;</span>
+          <h2>VÄLKOMMEN</h2>
+          <form class="loginForm">
+            <input type="email" id="email-input-login" class="input email-input-login" placeholder="E-postadress" required />
+            <input type="password" id="password-input-login" class="input password-input-login" placeholder="Lösenord" required />
+            <button type="submit" class="loginBtn">Logga in</button>
+          </form>
+          <div class="modalLinks">
+            <button class="createAccountBtn btn" id="createAccountBtn">Skapa Konto</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SKAPA KONTO MODAL -->
+      <div id="createAccountModal" class="modal">
+        <div class="modalContainer">
+          <span id="closeCreateAccountModal" class="close">&times;</span>
+          <h2>SKAPA KONTO</h2>
+          <form id="registerForm">
+            <input type="email" id="email-input-register" class="registerInput" placeholder="E-postadress" required />
+            <input type="text" id="mobile-input-register" class="registerInput" placeholder="Mobilnummer" required />
+            <input type="password" id="password-input-register" class="registerInput" placeholder="Lösenord" required />
+            <button type="submit" class="loginBtn">Registrera</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- KONTO-MODAL -->
+      <div class="modal" id="accountModal">
+        <div class="modalContainer" id="accountModalContainer">
+          <span id="closeAccountModal" class="close">&times;</span>
+          <h2>HÄRLIGT ATT DU ÄR TILLBAKA</h2>
+          <button class="inlogBox" id="logoutBtn">Logga ut</button>
+        </div>
       </div>
 
       <button class="button shoppingcart">
@@ -52,7 +90,7 @@
         <div class="meny">
           <h3>REKOMMENDERAT</h3>
           <ul>
-            <li><a href="admin.html" style="display: none;"><i class="fa-solid fa-shield-alt"></i> Admin Panel</a></li>
+            <li><a id="adminLink" href="/admin.html" style="display: none;"><i class="fa-solid fa-shield-alt"></i> Admin Panel</a></li>
             <li><a href="#"><i class="fa-solid fa-fire"></i> Aktuellt just nu</a></li>
             <li><a href="index.html"><i class="fa-solid fa-list"></i> Alla produkter</a></li>
           </ul>
@@ -118,3 +156,4 @@
     </footer>
   </body>
 </html>
+
