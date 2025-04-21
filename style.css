@@ -905,28 +905,18 @@ footer.footer {
 } 
 
 .wrapper {
-  display: flex;
+  display: flex; 
 }
 
 .sidebar {
-  width: 250px;
-  background-color: #f4f4f4; 
-  padding: 1rem; 
+  width: 250px; 
+  background-color: #f4f4f4;
+  padding: 1rem;
+  min-height: 100vh; 
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .main-content {
-  flex: 1;
+  flex: 1; 
   padding: 2rem;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-}
-
-.card {
-  max-width: 600px;
-  width: 100%;
-  padding: 1.5rem;
-  border-radius: 10px;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
