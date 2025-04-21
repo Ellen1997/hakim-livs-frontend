@@ -25,6 +25,7 @@
         <script src="./scripts/my-page.js" defer></script>
       </head>
 <body>
+
     <header class="header">
         <div class="logo-container">
           <a href="index.html" class="logo">
@@ -37,6 +38,59 @@
           </a>
         </div>
       </header>
-    
+
+      <main class="main-content">
+        <section class="my-pages-container">
+          <h1 class="my-pages-header">Mina sidor</h1>
+  
+          <div class="my-pages-section">
+            <h2>Profilinformation</h2>
+            <p><strong>Namn:</strong> <span id="customer-name">Ej angivet</span></p>
+            <p><strong>E-post:</strong> <span id="customer-email">Ej angivet</span></p>
+            <p><strong>Telefon:</strong> <span id="customer-phone">Ej angivet</span></p>
+            <p><strong>Adress:</strong> <span id="customer-address">Ej angivet</span></p>
+          </div>
+          
+          <button id="editProfileBtn" class="my-pages-link">Redigera profil</button>
+          
+          <div id="editProfileModal" class="modal hidden">
+            <div class="modal-content">
+              <span id="closeModalBtn" class="close-modal">&times;</span>
+              <h2>Redigera Profil</h2>
+              <form id="editProfileForm">
+                <label for="editName">Namn:</label>
+                <input type="text" id="editName" name="name" />
+          
+                <label for="editEmail">E-post:</label>
+                <input type="email" id="editEmail" name="email" />
+          
+                <label for="editPhone">Telefon:</label>
+                <input type="tel" id="editPhone" name="phone" />
+          
+                <label for="editAddress">Adress:</label>
+                <input type="text" id="editAddress" name="address" />
+          
+                <button type="button" id="saveProfileBtn" class="save-button">Spara</button>
+              </form>
+            </div>
+          </div>
+          
+          <div class="my-pages-section">
+            <h2>Orderhistorik</h2>
+            <p>Se alla dina tidigare ordrar.</p>
+            <div id="orders-history"></div>
+          </div>
+  
+          <div class="my-pages-section">
+            <h2>Inställningar</h2>
+            <p>Ändra dina kontoinställningar och preferenser.</p>
+            <a href="#" class="my-pages-link">Gå till inställningar</a>
+          </div>
+  
+          <div class="logout-container">
+            <button id="logoutBtn" class="logout-button">Logga ut</button>
+          </div>
+        </section>
+      </main>
 </body>
 </html>
