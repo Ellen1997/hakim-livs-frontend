@@ -104,6 +104,12 @@ loginForm.addEventListener("submit", async (e) => {
         hideAndShowProduct(cartContainer, goToCheckoutBtn);
         paymentStage(cartProductCardContainer);
     } 
+
+    const myPageLink = document.getElementById("myPageLink");
+    if (myPageLink) {
+      myPageLink.style.display = 'inline-block'; 
+    }
+
     else {
       showModal(accountModal);
     }
