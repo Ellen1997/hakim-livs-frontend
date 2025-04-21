@@ -1,0 +1,69 @@
+const customerNameElement = document.getElementById('customer-name');
+const customerEmailElement = document.getElementById('customer-email');
+const customerPhoneElement = document.getElementById('customer-phone');
+const customerAddressElement = document.getElementById('customer-address');
+const ordersHistoryElement = document.getElementById('orders-history');
+const logoutBtn = document.getElementById('logoutBtn');
+
+const editProfileBtn = document.getElementById('editProfileBtn'); 
+const editProfileModal = document.getElementById('editProfileModal');
+const closeModalBtn = document.getElementById('closeModalBtn'); 
+const saveProfileBtn = document.getElementById('saveProfileBtn'); 
+const editName = document.getElementById('editName');
+const editEmail = document.getElementById('editEmail');
+const editPhone = document.getElementById('editPhone');
+const editAddress = document.getElementById('editAddress');
+
+const token = localStorage.getItem('token');
+
+const fetchCustomerData = async () => {
+  if (!token) {
+    alert('Du är inte inloggad!');
+    window.location.href = 'index.html'; 
+  }
+
+  try {
+    const response = await axios.get('https://be-webshop-2025-fe-two.vercel.app/api/my-pages', {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
+    const user = response.data.user || {};
+    const orders = response.data.orders || [];
+
+
+    if (customerNameElement) customerNameElement.textContent = user.name;
+    if (customerEmailElement) customerEmailElement.textContent = user.email;
+    if (customerPhoneElement) customerPhoneElement.textContent = user.phone; 
+    if (customerAddressElement) customerAddressElement.textContent = user.address;
+
+    
+    if (orders.length > 0) {
+      orders.forEach(order => {
+        const orderDiv = document.createElement('div');
+        orderDiv.classList.add('order');
+        orderDiv.innerHTML = `
+          <p><strong>Order ID:</strong> ${order.id}</p>
+          <p><strong>Beställningsdatum:</strong> ${new Date(order.date).toLocaleDateString()}</p>
+          <p><strong>Totalt pris:</strong> ${order.totalPrice} SEK</p>
+        `;
+        ordersHistoryElement.appendChild(orderDiv);
+      });
+    } else {
+      ordersHistoryElement.innerHTML = "<p>Inga tidigare beställningar.</p>";
+    }
+  } catch (error) {
+    console.error('Error fetching user data:', error);
+    alert('Något gick fel, försök igen senare.');
+  }
+};
+
+editProfileBtn.addEventListener('click', () => {
+   
+    editName.value = customerNameElement.textContent || '';
+    editEmail.value = customerEmailElement.textContent || '';
+    editPhone.value = customerPhoneElement.textContent || '';
+    editAddress.value = customerAddressElement.textContent || '';
+  
+    
+    editProfileModal.style.display = "block";
+  });
