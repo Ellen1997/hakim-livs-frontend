@@ -918,8 +918,8 @@ footer.footer {
   flex: 1;
   padding: 2rem;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .card {
