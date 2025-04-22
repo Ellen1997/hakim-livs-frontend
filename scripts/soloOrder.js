@@ -27,7 +27,7 @@ let renderOrderDetails = async () => {
           <p><strong>Produktnamn:</strong> ${product.name}</p>
           <p><strong>Pris:</strong> ${product.price} kr</p>
           <p><strong>Antal:</strong> ${product.quantity}</p>
-          <p><strong>Produkt beskrivning: </strong> ${product.productId.description} </p>
+          <p><strong>Produkt beskrivning: </strong> ${product.productId ? product.productId.description : 'Ingen beskrivning tillgänglig'} </p>
           <img src="${product.productId.img}" alt="${product.name}" style="width: 100px; height: auto;" />
         </div>
       `).join('')}
