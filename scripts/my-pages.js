@@ -6,7 +6,7 @@ const ordersHistoryElement = document.getElementById('orders-history');
 const logoutBtn = document.getElementById('logoutBtn');
 
 
-const editProfileBtn = document.getElementById('editProfileBtn');
+const editBtn = document.getElementById('editProfileBtn');
 const editProfileModal = document.getElementById('editProfileModal');
 const closeModalBtn = document.getElementById('closeModalBtn');
 const saveProfileBtn = document.getElementById('saveProfileBtn');
@@ -16,16 +16,12 @@ const editPhone = document.getElementById('editPhone');
 const editAddress = document.getElementById('editAddress');
 
 
-editButton.addEventListener('click', () => {
+editBtn.addEventListener('click', () => {
     editModal.style.display = 'block'; 
   });
   
   closeModalBtn.addEventListener('click', () => {
     editModal.style.display = 'none'; 
-  });
-  
-  cancelModalBtn.addEventListener('click', () => {
-    editModal.style.display = 'none';
   });
   
   window.addEventListener('click', (event) => {
