@@ -193,9 +193,12 @@ let paymentStage = (cartProductCardContainer,totalPrice) => {
         }
         let order = {
             products: cart.map(item => ({
+            productId: item._id,
             name: item.product,
             quantity: item.amount,
-            price: item.price
+            price: item.price,
+            img: item.img, 
+            description: item.description
         })),
           total: parseFloat(totalPrice.toFixed(2)),
         };
@@ -223,7 +226,7 @@ let paymentStage = (cartProductCardContainer,totalPrice) => {
         let p1 = document.createElement("p");
         p1.innerText = "På Mina sidor kan du se din orderbekräftelse.";
         let p2 = document.createElement("p");
-        p2.innerText = "Hakim packar nu din order. Du får ett sms när orden finns redo att hämta"
+        p2.innerText = "Hakim packar nu din order. Du får ett sms när orden finns redo att hämta!"
         cartProductCardContainer.style.visibility = "visible";
         cartProductCardContainer.removeAttribute("inert");
         cartProductCardContainer.innerHTML = "";

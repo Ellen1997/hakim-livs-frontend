@@ -30,6 +30,8 @@ let renderPage = async () => {
             buyButton.classList.add("button");
             buyButton.innerHTML = "Köp";
 
+            buyButton.setAttribute("data-product-id", product._id);
+
             productCardsContainer.appendChild(productCard);
             productCard.appendChild(linkProductCard);
             productCard.appendChild(buyButton);
@@ -142,11 +144,5 @@ let updateCartIcon = () => {
 };
 
 document.addEventListener("DOMContentLoaded", updateCartIcon);
-
-// let token = localStorage.getItem("token");
-
-// if (!token) {
-//     localStorage.removeItem("cart");
-// }
 
 renderPage();
