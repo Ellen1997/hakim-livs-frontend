@@ -27,11 +27,6 @@
         orderHistoryModal.style.display = 'none'; 
       });
       
-      window.addEventListener('click', (event) => {
-        if (event.target === orderHistoryModal) {
-          orderHistoryModal.style.display = 'none'; 
-        }
-      });
 
     const fetchOrderHistory = async () => {
         const token = localStorage.getItem('token');
@@ -87,12 +82,6 @@ editBtn.addEventListener('click', () => {
   
   closeModalBtn.addEventListener('click', () => {
     editProfileModal.style.display = 'none'; 
-  });
-  
-  window.addEventListener('click', (event) => {
-    if (event.target === editModal) {
-      editProfileModal.style.display = 'none'; 
-    }
   });
 
 
