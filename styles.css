@@ -1,4 +1,31 @@
-
+* {
+    box-sizing: border-box;
+    font-family: "Archivo", sans-serif;
+  }
+  
+  :root {
+    font-family: "Archivo", sans-serif;
+    --primary-text-color: #333;
+    --primary-button-text-color: #ffffff;
+    --background-color: #efefef;
+    --box-color: #ffffff;
+    --light-blue: #d3d4f5;
+    --button-blue: #2426cc;
+    --title-color: #011e62;
+    --price-color-red: #f90035;
+    --frame-grey: #757575;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    height: 100%;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+  }
 .wrapper {
     display: flex; 
     align-items: flex-start;
