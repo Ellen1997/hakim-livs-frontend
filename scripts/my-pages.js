@@ -5,7 +5,7 @@
     const customerAddressElement = document.getElementById('customer-address');
     const ordersHistoryElement = document.getElementById('orders-history');
     const logoutBtn = document.getElementById('logoutBtn');
-    const editBtn = document.getElementById('editProfileBtn');
+    const editBtn = document.getElementById('editBtn');
     const editProfileModal = document.getElementById('editProfileModal');
     const closeModalBtn = document.getElementById('closeModalBtn');
     const saveProfileBtn = document.getElementById('saveProfileBtn');
