@@ -37,7 +37,7 @@
         }
       
         try {
-          const response = await axios.get('https://be-webshop-2025-fe-two.vercel.app/api/myOrders', {
+          const response = await axios.get('https://be-webshop-2025-fe-two.vercel.app/api/orders/myOrders', {
             headers: { Authorization: `Bearer ${token}` } 
           });
       
