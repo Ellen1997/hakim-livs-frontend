@@ -1,20 +1,25 @@
-const customerNameElement = document.getElementById('customer-name');
-const customerEmailElement = document.getElementById('customer-email');
-const customerPhoneElement = document.getElementById('customer-phone');
-const customerAddressElement = document.getElementById('customer-address');
-const ordersHistoryElement = document.getElementById('orders-history');
-const logoutBtn = document.getElementById('logoutBtn');
-
-
-const editBtn = document.getElementById('editProfileBtn');
-const editProfileModal = document.getElementById('editProfileModal');
-const closeModalBtn = document.getElementById('closeModalBtn');
-const saveProfileBtn = document.getElementById('saveProfileBtn');
-const editName = document.getElementById('editName');
-const editEmail = document.getElementById('editEmail');
-const editPhone = document.getElementById('editPhone');
-const editAddress = document.getElementById('editAddress');
-
+document.addEventListener('DOMContentLoaded', () => {
+    const customerNameElement = document.getElementById('customer-name');
+    const customerEmailElement = document.getElementById('customer-email');
+    const customerPhoneElement = document.getElementById('customer-phone');
+    const customerAddressElement = document.getElementById('customer-address');
+    const ordersHistoryElement = document.getElementById('orders-history');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const editBtn = document.getElementById('editProfileBtn');
+    const editProfileModal = document.getElementById('editProfileModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const saveProfileBtn = document.getElementById('saveProfileBtn');
+    const editName = document.getElementById('editName');
+    const editEmail = document.getElementById('editEmail');
+    const editPhone = document.getElementById('editPhone');
+    const editAddress = document.getElementById('editAddress');
+  
+   
+    if (!editBtn || !closeModalBtn || !saveProfileBtn || !logoutBtn || !editProfileModal) {
+      console.error('Något element saknas i DOM!');
+      return;
+    }
+});
 
 editBtn.addEventListener('click', () => {
     editModal.style.display = 'block'; 
