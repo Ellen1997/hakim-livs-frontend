@@ -4,22 +4,26 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Hakim Livs - Mina Sidor</title>
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="styles.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.8.4/axios.min.js"></script>
         <script src="./scripts/my-pages.js" defer></script>
     </head>
     <body>
-      
+        
         <header class="header">
             <div class="logo-container">
                 <a href="index.html" class="logo">
                     <img src="./Bilder/HAKIM LIVS.png" alt="Hakim Livs logo" class="logo" width="300" />
                 </a>
             </div>
+            <div class="welcome-message">
+                <h2>Välkommen till Mina Sidor!</h2>
+            </div>
         </header>
 
+        
         <div class="wrapper">
-          
+            
             <div class="sidebar">
                 <h3>Min Profil</h3>
                 <ul>
@@ -28,20 +32,9 @@
                     <li><button id="logoutBtn" class="button">Logga ut</button></li>
                 </ul>
             </div>
-
-            <div class="main-content">
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Kundens Uppgifter</h2>
-                        <p id="customer-name"><strong>Namn:</strong></p>
-                        <p id="customer-email"><strong>Email:</strong></p>
-                        <p id="customer-phone"><strong>Telefon:</strong></p>
-                        <p id="customer-address"><strong>Address:</strong></p>
-                    </div>
-                </div>
-            </div>
         </div>
 
+        
         <div id="editProfileModal" class="modal">
             <div class="modal-content">
                 <span id="closeModalBtn" class="close">&times;</span>
@@ -54,6 +47,7 @@
             </div>
         </div>
 
+        
         <div id="orderHistoryModal" class="modal">
             <div class="modal-content">
                 <span id="closeOrderHistoryModal" class="close">&times;</span>
@@ -62,6 +56,7 @@
             </div>
         </div>
 
+        
         <footer class="footer">
             <div class="footer-container">
                 <p id="footer-rights">&copy; 2024 Hakim Livs. All rights reserved.</p>
