@@ -905,7 +905,7 @@ footer.footer {
 } 
 
 
-/* Grundläggande styling för alla element */
+
 * {
   box-sizing: border-box;
   font-family: "Archivo", sans-serif;
@@ -921,7 +921,7 @@ body {
   flex-direction: column;
 }
 
-/* Header */
+
 .header {
   width: auto;
   background: var(--box-color);
@@ -968,7 +968,8 @@ body {
   color: var(--button-blue);
 }
 
-/* Sidebar */
+
+
 .wrapper {
   display: flex;
   flex-direction: row;
@@ -1015,11 +1016,11 @@ body {
   background-color: #4a4fef;
 }
 
-/* Main Content */
+
 .main-content {
   flex: 1;
   padding: 2rem;
-  margin-left: 280px; /* Justera så att main content inte överlappar sidebar */
+  margin-left: 280px; 
   max-width: 800px;
 }
 
@@ -1046,7 +1047,7 @@ body {
   color: var(--primary-text-color);
 }
 
-/* Modal */
+
 .modal {
   display: none;
   position: fixed;
@@ -1077,7 +1078,7 @@ body {
   cursor: pointer;
 }
 
-/* Knappar */
+
 .button,
 .sidebar button {
   font-size: 14px;
@@ -1112,7 +1113,7 @@ body {
   color: var(--primary-text-color);
 }
 
-/* Styling för input och select fält */
+
 input, select {
   width: 100%;
   height: 40px;
@@ -1136,7 +1137,7 @@ button[type="submit"]:hover {
   background-color: #4a4fef;
 }
 
-/* Footer */
+
 footer.footer {
   width: 100%;
   background: var(--button-blue);
@@ -1178,7 +1179,7 @@ footer.footer {
   text-decoration: underline;
 }
 
-/* Styling för "Redigera Profil" modalen */
+
 #editProfileModal .modal-content {
   background: var(--box-color);
   padding: 2rem;
@@ -1208,7 +1209,7 @@ footer.footer {
   background-color: #4a4fef;
 }
 
-/* Styling för Orderhistorik modalen */
+
 #orderHistoryModal .modal-content {
   background: var(--box-color);
   padding: 2rem;
@@ -1219,7 +1220,7 @@ footer.footer {
   margin-top: 1rem;
 }
 
-/* Responsiv design */
+
 @media (max-width: 768px) {
   .wrapper {
     flex-direction: column;
