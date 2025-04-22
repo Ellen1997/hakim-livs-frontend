@@ -3,7 +3,6 @@
     const customerEmailElement = document.getElementById('customer-email');
     const customerPhoneElement = document.getElementById('customer-phone');
     const customerAddressElement = document.getElementById('customer-address');
-    const ordersHistoryElement = document.getElementById('orders-history');
     const logoutBtn = document.getElementById('logoutBtn');
     const editBtn = document.getElementById('editBtn');
     const editProfileModal = document.getElementById('editProfileModal');
@@ -13,7 +12,26 @@
     const editEmail = document.getElementById('editEmail');
     const editPhone = document.getElementById('editPhone');
     const editAddress = document.getElementById('editAddress');
+    const orderHistoryBtn = document.getElementById('orderHistoryBtn');
+    const orderHistoryModal = document.getElementById('orderHistoryModal');
+    const closeOrderHistoryModal = document.getElementById('closeOrderHistoryModal');
+    const orderHistoryList = document.getElementById('orderHistoryList');
   
+
+    orderHistoryBtn.addEventListener('click', () => {
+        orderHistoryModal.style.display = 'block'; 
+        fetchOrderHistory();
+      });
+    
+      closeOrderHistoryModal.addEventListener('click', () => {
+        orderHistoryModal.style.display = 'none'; 
+      });
+      
+      window.addEventListener('click', (event) => {
+        if (event.target === orderHistoryModal) {
+          orderHistoryModal.style.display = 'none'; 
+        }
+      });
 
     const fetchOrderHistory = async () => {
         const token = localStorage.getItem('token');
@@ -97,15 +115,12 @@ const fetchCustomerData = async () => {
     const orders = response.data.orders || [];
 
 
-
-
     if (customerNameElement) customerNameElement.textContent = user.name;
     if (customerEmailElement) customerEmailElement.textContent = user.email;
     if (customerPhoneElement) customerPhoneElement.textContent = user.phone;
     if (customerAddressElement) customerAddressElement.textContent = user.address;
 
 
-   
     if (orders.length > 0) {
       orders.forEach(order => {
         const orderDiv = document.createElement('div');
