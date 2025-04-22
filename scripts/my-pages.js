@@ -16,16 +16,16 @@
   
 
 editBtn.addEventListener('click', () => {
-    editModal.style.display = 'block'; 
+    editProfileModal.style.display = 'block'; 
   });
   
   closeModalBtn.addEventListener('click', () => {
-    editModal.style.display = 'none'; 
+    editProfileModal.style.display = 'none'; 
   });
   
   window.addEventListener('click', (event) => {
     if (event.target === editModal) {
-      editModal.style.display = 'none'; 
+      editProfileModal.style.display = 'none'; 
     }
   });
 
