@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+
     const customerNameElement = document.getElementById('customer-name');
     const customerEmailElement = document.getElementById('customer-email');
     const customerPhoneElement = document.getElementById('customer-phone');
@@ -14,12 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const editPhone = document.getElementById('editPhone');
     const editAddress = document.getElementById('editAddress');
   
-   
-    if (!editBtn || !closeModalBtn || !saveProfileBtn || !logoutBtn || !editProfileModal) {
-      console.error('Något element saknas i DOM!');
-      return;
-    }
-});
 
 editBtn.addEventListener('click', () => {
     editModal.style.display = 'block'; 
