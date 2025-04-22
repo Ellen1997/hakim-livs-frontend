@@ -1,3 +1,232 @@
+/* Grundläggande styling för alla element */
+* {
+  box-sizing: border-box;
+  font-family: "Archivo", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  background: var(--box-color);
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.welcome-message {
+  text-align: center;
+}
+
+.welcome-message h2 {
+  font-size: 2rem;
+  color: var(--title-color);
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+/* Sidebar - Centrera sidebaren */
+.wrapper {
+  display: flex;
+  justify-content: center; /* Centrera hela wrappern */
+  padding: 2rem;
+  margin: 2rem;
+  flex-direction: row; /* Få sidebar och main content på samma nivå */
+}
+
+.sidebar {
+  background-color: var(--box-color);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Centrerar knapparna i sidomenyn */
+}
+
+.sidebar h3 {
+  color: var(--frame-grey);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 1rem 0;
+}
+
+.sidebar button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: var(--button-blue);
+  color: var(--primary-button-text-color);
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.sidebar button:hover {
+  background-color: #4a4fef;
+}
+
+/* Main Content - Placera innehållet till höger om sidebaren */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  margin-left: 40px; /* Ge utrymme mellan sidebaren och innehållet */
+  max-width: 800px;
+}
+
+.card {
+  background-color: var(--box-color);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  margin-bottom: 1.5rem;
+}
+
+.card-header h2 {
+  font-size: 2rem;
+  color: var(--title-color);
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.card-header p {
+  font-size: 1rem;
+  color: var(--primary-text-color);
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  overflow: auto;
+  width: 100%;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modalContainer {
+  background: var(--box-color);
+  border: var(--frame-grey) 1px solid;
+  margin: 9rem auto;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 10px;
+  position: relative;
+  padding: 3rem;
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Styling för Redigera profil modal */
+#editProfileModal input {
+  width: 100%;
+  height: 35px;
+  margin: 10px 0;
+  padding: 0 10px;
+  border: 1px solid var(--frame-grey);
+  border-radius: 5px;
+}
+
+#editProfileModal button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--button-blue);
+  color: var(--primary-button-text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#editProfileModal button:hover {
+  background-color: #4a4fef;
+}
+
+/* Styling för Orderhistorik modal */
+#orderHistoryModal .modal-content {
+  background: var(--box-color);
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+#orderHistoryList {
+  margin-top: 1rem;
+}
+
+/* Footer */
+footer.footer {
+  width: 100%;
+  background: var(--button-blue);
+  padding: 1rem;
+  position: static;
+  text-align: center;
+}
+
+.footer-container {
+  margin-bottom: 0px auto;
+}
+
+#footer-rights {
+  color: var(--primary-button-text-color);
+}
+
+.footer-icons {
+  padding: 2rem;
+}
+
+.footer-icons img:hover {
+  filter: invert(30%);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: var(--box-color);
+}
+
+.footer-links a:hover {
+  color: var(--primary-button-text-color);
+  text-decoration: underline;
+}
+
 /* Modal styling */
 .modal {
   display: none;
@@ -49,5 +278,5 @@
 }
 
 #editProfileModal button:hover {
-  background-color: #5f64f8;
+  background-color: #4a4fef;
 }
