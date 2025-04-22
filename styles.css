@@ -1,0 +1,135 @@
+
+.wrapper {
+    display: flex; 
+    align-items: flex-start;
+  }
+  
+  .sidebar {
+    width: 250px; 
+    background-color: #f4f4f4;
+    padding: 1rem;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .main-content {
+    flex: 1; 
+    padding: 2rem;
+  }
+  
+  #editBtn {
+    background-color: transparent;
+    border: 2px solid #2e53f6;
+    color: #2e53f6;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  #orderHistoryBtn {
+    background-color: transparent;
+    border: 2px solid #2e53f6;
+    color: #2e53f6;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+  
+.modal {
+    display: none; 
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  .close,
+  #closeModalBtn,
+  #closeOrderHistoryModal {
+    font-size: 30px;
+    font-weight: bold;
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .close:hover,
+  #closeModalBtn:hover,
+  #closeOrderHistoryModal:hover {
+    color: #000;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+ 
+  #orderHistoryList {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .order {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .order:last-child {
+    border-bottom: none;
+  }
+  
+  .order p {
+    margin: 5px 0;
+  }
+  
+ 
+  body.modal-open {
+    overflow: hidden;
+  }
+  
