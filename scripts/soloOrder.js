@@ -7,7 +7,6 @@ let renderOrderDetails = async () => {
   }
 
   try {
-    
     const response = await axios.get(`https://hakim-livs-backend.vercel.app/api/orders/${orderId}`);
     const order = response.data;
 
@@ -36,5 +35,6 @@ let renderOrderDetails = async () => {
     console.error("Något gick fel:", error);
   }
 };
+console.log(productId);
 
 renderOrderDetails();
