@@ -1,7 +1,19 @@
-/* Grundläggande styling för alla element */
 * {
   box-sizing: border-box;
   font-family: "Archivo", sans-serif;
+}
+
+:root {
+  font-family: "Archivo", sans-serif;
+  --primary-text-color: #333;
+  --primary-button-text-color: #ffffff;
+  --background-color: #efefef;
+  --box-color: #ffffff;
+  --light-blue: #d3d4f5;
+  --button-blue: #2426cc;
+  --title-color: #011e62;
+  --price-color-red: #f90035;
+  --frame-grey: #757575;
 }
 
 body {
@@ -9,6 +21,7 @@ body {
   padding: 0;
   min-width: 320px;
   min-height: 100vh;
+  height: 100%;
   background-color: var(--background-color);
   display: flex;
   flex-direction: column;
@@ -39,10 +52,10 @@ body {
 /* Sidebar - Centrera sidebaren */
 .wrapper {
   display: flex;
-  justify-content: center; /* Centrera hela wrappern */
+  justify-content: center;
   padding: 2rem;
   margin: 2rem;
-  flex-direction: row; /* Få sidebar och main content på samma nivå */
+  flex-direction: row;
 }
 
 .sidebar {
@@ -54,7 +67,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; /* Centrerar knapparna i sidomenyn */
+  align-items: center;
 }
 
 .sidebar h3 {
@@ -76,7 +89,7 @@ body {
   width: 100%;
   padding: 10px;
   border: none;
-  background-color: var(--button-blue);
+  background-color: var(--button-blue); /* Knappen är blå från start */
   color: var(--primary-button-text-color);
   border-radius: 5px;
   cursor: pointer;
@@ -87,11 +100,11 @@ body {
   background-color: #4a4fef;
 }
 
-/* Main Content - Placera innehållet till höger om sidebaren */
+/* Main Content */
 .main-content {
   flex: 1;
   padding: 2rem;
-  margin-left: 40px; /* Ge utrymme mellan sidebaren och innehållet */
+  margin-left: 40px;
   max-width: 800px;
 }
 
@@ -107,7 +120,7 @@ body {
 }
 
 .card-header h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: var(--title-color);
   font-weight: bold;
   margin-bottom: 1rem;
@@ -118,39 +131,37 @@ body {
   color: var(--primary-text-color);
 }
 
-/* Modal */
+/* Modal styling - Centrerad modal */
 .modal {
   display: none;
   position: fixed;
   top: 0;
-  overflow: auto;
+  left: 0;
   width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
 }
 
-.modal.show {
-  display: flex;
-}
-
-.modalContainer {
+.modal-content {
   background: var(--box-color);
-  border: var(--frame-grey) 1px solid;
-  margin: 9rem auto;
-  width: 90%;
-  max-width: 600px;
+  padding: 2rem;
   border-radius: 10px;
-  position: relative;
-  padding: 3rem;
+  width: 70%;
+  max-width: 500px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .close {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 10px;
+  right: 10px;
   font-size: 1.5rem;
   cursor: pointer;
 }
 
-/* Styling för Redigera profil modal */
+/* Redigera Profil modal */
 #editProfileModal input {
   width: 100%;
   height: 35px;
@@ -158,6 +169,11 @@ body {
   padding: 0 10px;
   border: 1px solid var(--frame-grey);
   border-radius: 5px;
+  font-size: 14px;
+}
+
+#editProfileModal input::placeholder {
+  color: #a5a5a5;
 }
 
 #editProfileModal button {
@@ -174,7 +190,7 @@ body {
   background-color: #4a4fef;
 }
 
-/* Styling för Orderhistorik modal */
+/* Orderhistorik modal */
 #orderHistoryModal .modal-content {
   background: var(--box-color);
   padding: 2rem;
@@ -227,56 +243,30 @@ footer.footer {
   text-decoration: underline;
 }
 
-/* Modal styling */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+/* Order history modal style */
+.orderHistoryModal {
+  display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 
-.modal-content {
-  background: var(--box-color);
-  padding: 2rem;
-  border-radius: 10px;
-  width: 70%;
-  max-width: 500px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+/* Footer Links */
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem;
 }
 
-.close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 1.5rem;
-  cursor: pointer;
+.footer-links a {
+  text-decoration: none;
+  color: var(--box-color);
 }
 
-/* Specific styles for Edit Profile Modal */
-#editProfileModal input {
-  width: 100%;
-  height: 35px;
-  margin: 10px 0;
-  padding: 0 10px;
-  border: 1px solid var(--frame-grey);
-  border-radius: 5px;
-}
-
-#editProfileModal button {
-  width: 100%;
-  padding: 10px;
-  background-color: var(--button-blue);
+.footer-links a:hover {
   color: var(--primary-button-text-color);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  text-decoration: underline;
 }
 
-#editProfileModal button:hover {
-  background-color: #4a4fef;
-}
+
