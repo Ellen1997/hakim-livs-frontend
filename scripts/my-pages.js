@@ -133,7 +133,7 @@ const fetchCustomerData = async () => {
         ordersHistoryElement.appendChild(orderDiv);
       });
     } else {
-      ordersHistoryElement.innerHTML = "<p>Inga tidigare beställningar.</p>";
+      "<p>Inga tidigare beställningar.</p>";
     }
   } catch (error) {
     console.error('Error fetching user data:', error);
