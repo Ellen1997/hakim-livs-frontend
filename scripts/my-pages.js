@@ -70,7 +70,7 @@
           });
         } else {
          
-          ordersHistoryElement.innerHTML = "<p>Inga tidigare beställningar.</p>";
+           "<p>Inga tidigare beställningar.</p>";
         }
       };
       
