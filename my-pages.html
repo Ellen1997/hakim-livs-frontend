@@ -46,8 +46,8 @@
           <ul>
             <li><a href="#">Orderhistorik</a></li>
            </ul>
-           <button id="editBtn">Redigera uppgifter</button>
-           <button id="logoutButton">Logga ut</button>
+           <button id="editProfileBtn">Redigera profil</button>
+           <button id="logoutBtn">Logga ut</button>
 
         </div>
      
@@ -66,17 +66,17 @@
     </div>
 
 
-      <div id="editModal" class="modal">
-        <div class="modal-container">
-          <span class="close">&times;</span>
-        <h3>Redigera Uppgifter</h3>
-        <input type="text" id="editName" placeholder="Namn" value="" />
-        <input type="email" id="editEmail" placeholder="Email" value="" />
-        <input type="tel" id="editPhone" placeholder="Telefon" value="" />
-        <input type="text" id="editAddress" placeholder="Address" value="" />
-        <button class="button">Spara</button>
+    <div id="editProfileModal" class="modal">
+        <div class="modal-content">
+          <span id="closeModalBtn">&times;</span>
+          <h2>Redigera profil</h2>
+          <input type="text" id="editName" placeholder="Namn" />
+          <input type="email" id="editEmail" placeholder="E-post" />
+          <input type="text" id="editPhone" placeholder="Telefon" />
+          <input type="text" id="editAddress" placeholder="Adress" />
+          <button id="saveProfileBtn">Spara</button>
+        </div>
       </div>
-    </div>
 
 
 
