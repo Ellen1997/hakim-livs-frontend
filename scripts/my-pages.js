@@ -80,7 +80,7 @@ const fetchCustomerData = async () => {
 };
 
 
-editProfileBtn.addEventListener('click', () => {
+editBtn.addEventListener('click', () => {
    
     editName.value = customerNameElement.textContent || '';
     editEmail.value = customerEmailElement.textContent || '';
