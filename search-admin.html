@@ -88,5 +88,30 @@
             }
         };
     </script>
+     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const modal = document.getElementById("accountModal");
+          const openModalBtn = document.getElementById("openModalBtn");
+          const closeModalBtn = document.getElementById("closeAccountModal");
+          const logoutBtn = document.getElementById("logoutBtn");
+      
+          if (openModalBtn && modal && closeModalBtn && logoutBtn) {
+            openModalBtn.addEventListener("click", () => {
+              modal.style.display = "block";
+            });
+      
+            closeModalBtn.addEventListener("click", () => {
+              modal.style.display = "none";
+            });
+
+            logoutBtn.addEventListener("click", () => {
+                localStorage.removeItem("token");
+                document.getElementById("loginText").innerHTML = "Logga in";
+                modal.style.display = "none";
+                window.location.href = "/";
+            });
+          }
+        });
+      </script>
 </body>
 </html>
