@@ -1,7 +1,6 @@
 const customerNameElement = document.getElementById('customer-name');
 const customerEmailElement = document.getElementById('customer-email');
 const customerPhoneElement = document.getElementById('customer-phone');
-const customerAddressElement = document.getElementById('customer-address');
 const logoutBtn = document.getElementById('logoutBtn');
 const editBtn = document.getElementById('editBtn');
 const editProfileModal = document.getElementById('editProfileModal');
@@ -10,7 +9,6 @@ const saveProfileBtn = document.getElementById('saveProfileBtn');
 const editName = document.getElementById('editName');
 const editEmail = document.getElementById('editEmail');
 const editPhone = document.getElementById('editPhone');
-const editAddress = document.getElementById('editAddress');
 const orderHistoryBtn = document.getElementById('orderHistoryBtn');
 const orderHistoryModal = document.getElementById('orderHistoryModal');
 const closeOrderHistoryModal = document.getElementById('closeOrderHistoryModal');
@@ -99,9 +97,7 @@ const fetchCustomerData = async () => {
             customerEmailElement.textContent = user.email || "Email saknas";
         if (customerPhoneElement) 
             customerPhoneElement.textContent = user.phone || "Telefon saknas";
-        if (customerAddressElement) 
-            customerAddressElement.textContent = user.address || "Adress saknas";
-        
+
     } catch (error) {
         console.error('Error fetching user data:', error);
         alert('Något gick fel, försök igen senare.');
@@ -112,7 +108,6 @@ editBtn.addEventListener('click', () => {
     editName.value = customerNameElement.textContent || "Namn";
     editEmail.value = customerEmailElement.textContent || "Email";
     editPhone.value = customerPhoneElement.textContent || "Telefon";
-    editAddress.value = customerAddressElement.textContent || "Adress";
 
     editProfileModal.style.display = "block";
 });
@@ -142,7 +137,6 @@ saveProfileBtn.addEventListener('click', async () => {
             customerNameElement.textContent = updatedProfile.name;
             customerEmailElement.textContent = updatedProfile.email;
             customerPhoneElement.textContent = updatedProfile.phone;
-            customerAddressElement.textContent = updatedProfile.address;
 
             editProfileModal.style.display = "none";
         }
