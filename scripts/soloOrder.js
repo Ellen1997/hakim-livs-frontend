@@ -1,8 +1,6 @@
-const orderDetailsContainer = document.querySelector("#order-details-container");
-
-const orderId = window.sessionStorage.getItem("orderId");
-
-const renderOrderDetails = async () => {
+let renderOrderDetails = async () => {
+  let orderDetailsContainer = document.querySelector("#order-details-container");
+  const orderId = window.sessionStorage.getItem("orderId");
   if (!orderId) {
     console.error("Ingen orderId hittades i sessionStorage.");
     return;

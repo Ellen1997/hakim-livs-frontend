@@ -37,6 +37,11 @@ const renderOrders = async () => {
         <hr>
       `;
 
+      orderRow.addEventListener("click", () => {
+        window.sessionStorage.setItem("orderId", order._id);
+        window.location.href = "soloOrder.html"; 
+      });
+
       orderlistContainer.append(orderRow);
     });
 
