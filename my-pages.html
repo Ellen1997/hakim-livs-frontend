@@ -44,10 +44,10 @@
         <div class="sidebar">
           <h3>Min Profil</h3>
           <ul>
-            <li><a href="#">Orderhistorik</a></li>
-           </ul>
-           <button id="editBtn">Redigera profil</button>
-           <button id="logoutBtn">Logga ut</button>
+            <li><button id="orderHistoryBtn">Visa Orderhistorik</button></li>
+           <li><button id="editBtn">Redigera profil</button></li>
+           <li><button id="logoutBtn">Logga ut</button></li>
+        </ul>
 
         </div>
      
@@ -79,6 +79,17 @@
         </div>
       </div>
 
+
+
+<div id="orderHistoryModal" class="modal">
+  <div class="modal-content">
+    <span id="closeOrderHistoryModal" class="close">&times;</span>
+    <h2>Orderhistorik</h2>
+    <div id="orderHistoryList">
+     
+    </div>
+  </div>
+</div>
 
 
 

@@ -15,6 +15,54 @@
     const editAddress = document.getElementById('editAddress');
   
 
+    const fetchOrderHistory = async () => {
+        const token = localStorage.getItem('token');
+      
+        if (!token) {
+          alert('Du är inte inloggad!');
+          window.location.href = 'index.html';
+        }
+      
+        try {
+          const response = await axios.get('https://din-backend-url.com/api/orders', {
+            headers: { Authorization: `Bearer ${token}` } 
+          });
+      
+          if (response.status === 200) {
+            const orders = response.data.orders || [];
+            displayOrders(orders); 
+            console.error('Något gick fel vid hämtning av orderhistorik.');
+            alert('Kunde inte hämta orderhistorik.');
+          }
+        } catch (error) {
+          console.error('Fel vid hämtning av orderhistorik:', error);
+          alert('Något gick fel, försök igen senare.');
+        }
+      };
+
+      const displayOrders = (orders) => {
+        const ordersHistoryElement = document.getElementById('orders-history'); 
+      
+        if (orders.length > 0) {
+          
+          orders.forEach(order => {
+            const orderDiv = document.createElement('div');
+            orderDiv.classList.add('order');
+            orderDiv.innerHTML = `
+              <p><strong>Order ID:</strong> ${order.id}</p>
+              <p><strong>Beställningsdatum:</strong> ${new Date(order.date).toLocaleDateString()}</p>
+              <p><strong>Totalt pris:</strong> ${order.totalPrice} SEK</p>
+            `;
+            ordersHistoryElement.appendChild(orderDiv); 
+          });
+        } else {
+         
+          ordersHistoryElement.innerHTML = "<p>Inga tidigare beställningar.</p>";
+        }
+      };
+      
+      
+
 editBtn.addEventListener('click', () => {
     editProfileModal.style.display = 'block'; 
   });
@@ -135,4 +183,4 @@ logoutBtn.addEventListener('click', () => {
     window.location.href = 'index.html';
   });
  
-  document.addEventListener('DOMContentLoaded', fetchCustomerData);
+  document.addEventListener('DOMContentLoaded', fetchCustomerData, fetchOrderHistory)
