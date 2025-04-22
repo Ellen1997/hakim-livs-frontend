@@ -81,10 +81,10 @@ const fetchCustomerData = async () => {
 
 editBtn.addEventListener('click', () => {
    
-    editName.value = customerNameElement.textContent || '';
-    editEmail.value = customerEmailElement.textContent || '';
-    editPhone.value = customerPhoneElement.textContent || '';
-    editAddress.value = customerAddressElement.textContent || '';
+    editName.value = customerNameElement.textContent || "Namn";
+    editEmail.value = customerEmailElement.textContent || "Email";
+    editPhone.value = customerPhoneElement.textContent || "Telefon";
+    editAddress.value = customerAddressElement.textContent || "Adress";
  
    
     editProfileModal.style.display = "block";
