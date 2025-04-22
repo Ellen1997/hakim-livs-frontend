@@ -7,7 +7,12 @@ let renderOrderDetails = async () => {
   }
 
   try {
-    const response = await axios.get(`https://hakim-livs-backend.vercel.app/api/orders/${orderId}`);
+    const token = localStorage.getItem("token");
+    const response = await axios.get(`https://hakim-livs-backend.vercel.app/api/orders/${orderId}`, {
+      headers: {
+          Authorization: `Bearer ${token}`
+      }
+  });
     const order = response.data;
 
     
@@ -43,7 +48,7 @@ let renderOrderDetails = async () => {
       const selectedStatus = document.querySelector('#order-status').value;
     
       try {
-        const token = window.localStorage.getItem('token');
+        const token = localStorage.getItem('token');
         const response = await axios.put(`https://hakim-livs-backend.vercel.app/api/orders/${orderId}`, {
           status: selectedStatus
         }, {

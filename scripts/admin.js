@@ -53,7 +53,12 @@ const clearInput = () => {
 
 const fetchCategories = async () => {
     try {
-        const response = await axios.get("https://hakim-livs-backend.vercel.app/api/category");
+        const token = localStorage.getItem("token");
+        const response = await axios.get("https://hakim-livs-backend.vercel.app/api/category", {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          });
         const categories = response.data;
 
         categorySelect.innerHTML = `<option disabled selected>Välj kategori</option>`;
@@ -80,7 +85,13 @@ saveBtn.addEventListener("click", async () => {
     };
 
     try {
-        await axios.post("https://hakim-livs-backend.vercel.app/api/products/", newProduct);
+        const token = localStorage.getItem("token");
+
+        await axios.post("https://hakim-livs-backend.vercel.app/api/products/" , newProduct, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
         alert("Produkten har lagts till!");
         clearInput();
     } catch (error) {
@@ -100,7 +111,12 @@ document.querySelector("#admin-form-add-category").addEventListener("submit", as
     };
 
     try {
-        await axios.post("https://hakim-livs-backend.vercel.app/api/category", newCategory)
+        const token = localStorage.getItem("token");
+        await axios.post("https://hakim-livs-backend.vercel.app/api/category", newCategory, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
         alert("Kategori har lagts till!");
         document.querySelector("#admin-input-add-category").value = "";
         document.querySelector("#admin-input-add-category-description").value = "";
