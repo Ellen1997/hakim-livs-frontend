@@ -93,11 +93,15 @@ const fetchCustomerData = async () => {
 
         const user = response.data.user || {};
 
-        if (customerNameElement) customerNameElement.textContent = user.name;
-        if (customerEmailElement) customerEmailElement.textContent = user.email;
-        if (customerPhoneElement) customerPhoneElement.textContent = user.phone;
-        if (customerAddressElement) customerAddressElement.textContent = user.address;
-
+        if (customerNameElement) 
+            customerNameElement.textContent = user.name || "Namn saknas";
+        if (customerEmailElement) 
+            customerEmailElement.textContent = user.email || "Email saknas";
+        if (customerPhoneElement) 
+            customerPhoneElement.textContent = user.phone || "Telefon saknas";
+        if (customerAddressElement) 
+            customerAddressElement.textContent = user.address || "Adress saknas";
+        
     } catch (error) {
         console.error('Error fetching user data:', error);
         alert('Något gick fel, försök igen senare.');
