@@ -16,8 +16,26 @@ const editPhone = document.getElementById('editPhone');
 const editAddress = document.getElementById('editAddress');
 
 
-const token = localStorage.getItem('token');
+editButton.addEventListener('click', () => {
+    editModal.style.display = 'block'; 
+  });
+  
+  closeModalBtn.addEventListener('click', () => {
+    editModal.style.display = 'none'; 
+  });
+  
+  cancelModalBtn.addEventListener('click', () => {
+    editModal.style.display = 'none';
+  });
+  
+  window.addEventListener('click', (event) => {
+    if (event.target === editModal) {
+      editModal.style.display = 'none'; 
+    }
+  });
 
+
+const token = localStorage.getItem('token');
 
 const fetchCustomerData = async () => {
   if (!token) {
