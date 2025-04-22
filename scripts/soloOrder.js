@@ -31,6 +31,9 @@ let renderOrderDetails = async () => {
         </div>
       `).join('')}
     `;
+
+    console.log(product.productId); 
+    console.log(product.productId.img);
   } catch (error) {
     console.error("Något gick fel:", error);
   }
