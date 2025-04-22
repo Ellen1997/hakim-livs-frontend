@@ -6,10 +6,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Archivo:ital,wght@0,100..900;1,100..900&family=Comfortaa:wght@300..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fredoka:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nanum+Pen+Script&family=Quicksand:wght@300..700&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
     <script src="scripts/admin-products.js" defer></script>
     <script src="scripts/admin.js" defer></script>
+
+    <link rel="stylesheet" href="style.css">
 
 
     <title>Produktlista</title>
@@ -88,6 +90,31 @@
             }
         };
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const modal = document.getElementById("accountModal");
+          const openModalBtn = document.getElementById("openModalBtn");
+          const closeModalBtn = document.getElementById("closeAccountModal");
+          const logoutBtn = document.getElementById("logoutBtn");
+      
+          if (openModalBtn && modal && closeModalBtn && logoutBtn) {
+            openModalBtn.addEventListener("click", () => {
+              modal.style.display = "block";
+            });
+      
+            closeModalBtn.addEventListener("click", () => {
+              modal.style.display = "none";
+            });
+
+            logoutBtn.addEventListener("click", () => {
+                localStorage.removeItem("token");
+                document.getElementById("loginText").innerHTML = "Logga in";
+                modal.style.display = "none";
+                window.location.href = "/";
+            });
+          }
+        });
+      </script>
 </body>
 </html>
 
