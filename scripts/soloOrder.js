@@ -35,6 +35,5 @@ let renderOrderDetails = async () => {
     console.error("Något gick fel:", error);
   }
 };
-console.log(productId);
 
 renderOrderDetails();
