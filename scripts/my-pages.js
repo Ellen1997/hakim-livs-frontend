@@ -37,11 +37,11 @@ const fetchOrderHistory = async () => {
             headers: { Authorization: `Bearer ${token}` }
         });
 
-        console.log('API-svar:', response.data); 
+        console.log('API-svar:', response.data);
 
         if (response.status === 200) {
             const orders = response.data.orders || [];
-            displayOrders(orders);  
+            displayOrders(orders); 
         }
     } catch (error) {
         console.error('Error fetching orderhistory:', error);
@@ -49,9 +49,10 @@ const fetchOrderHistory = async () => {
     }
 };
 
+
 const displayOrders = (orders) => {
     const orderHistoryList = document.getElementById('orderHistoryList');
-    orderHistoryList.innerHTML = '';  
+    orderHistoryList.innerHTML = ''; 
 
     if (orders.length > 0) {
         orders.forEach(order => {
@@ -59,36 +60,37 @@ const displayOrders = (orders) => {
             orderDiv.classList.add('order');
 
             const orderId = document.createElement('p');
-            orderId.textContent = `Order ID: ${order._id || 'Ej tillgängligt'}`; 
+            orderId.textContent = `Order ID: ${order._id}`; 
             orderDiv.appendChild(orderId);
 
             const orderDate = document.createElement('p');
-            orderDate.textContent = `Beställningsdatum: ${new Date(order.createdAt).toLocaleDateString() || 'Ej tillgängligt'}`;
+            orderDate.textContent = `Beställningsdatum: ${new Date(order.createdAt).toLocaleDateString()}`;
             orderDiv.appendChild(orderDate);
 
             const orderPrice = document.createElement('p');
-            orderPrice.textContent = `Totalt pris: ${order.total || 'Ej tillgängligt'} SEK`;
+            orderPrice.textContent = `Totalt pris: ${order.total} SEK`; 
             orderDiv.appendChild(orderPrice);
 
             const productsList = document.createElement('div');
+            productsList.classList.add('products-list');
             order.products.forEach(product => {
                 const productDiv = document.createElement('div');
-                
+                productDiv.classList.add('product');
+
                 const productName = document.createElement('p');
-                productName.textContent = `Produktnamn: ${product.name || 'Ej tillgängligt'}`;
+                productName.textContent = `Produktnamn: ${product.name}`;
                 productDiv.appendChild(productName);
-                
-                const productPrice = document.createElement('p');
-                productPrice.textContent = `Pris: ${product.price || 'Ej tillgängligt'} SEK`;
-                productDiv.appendChild(productPrice);
-                
+
                 const productQuantity = document.createElement('p');
-                productQuantity.textContent = `Antal: ${product.quantity || 'Ej tillgängligt'}`;
+                productQuantity.textContent = `Antal: ${product.quantity}`;
                 productDiv.appendChild(productQuantity);
+
+                const productPrice = document.createElement('p');
+                productPrice.textContent = `Pris: ${product.price} SEK`;
+                productDiv.appendChild(productPrice);
 
                 productsList.appendChild(productDiv);
             });
-
             orderDiv.appendChild(productsList);
 
             orderHistoryList.appendChild(orderDiv);
@@ -99,6 +101,7 @@ const displayOrders = (orders) => {
         orderHistoryList.appendChild(noOrdersMessage);
     }
 };
+
 
 const fetchCustomerData = async () => {
     const token = localStorage.getItem('token');
@@ -112,8 +115,6 @@ const fetchCustomerData = async () => {
     let userName = localStorage.getItem('userName');
     let userEmail = localStorage.getItem('userEmail');
     let userPhone = localStorage.getItem('userPhone');
-
-    console.log('Hämtade uppgifter från localStorage:', { userName, userEmail, userPhone });
 
     if (!userName || !userEmail || !userPhone) {
         try {
@@ -131,7 +132,6 @@ const fetchCustomerData = async () => {
             localStorage.setItem('userEmail', userEmail);
             localStorage.setItem('userPhone', userPhone);
 
-            console.log('Hämtade användardata från server:', { userName, userEmail, userPhone });
         } catch (error) {
             console.error('Error fetching user data:', error);
             alert('Något gick fel, försök igen senare.');
