@@ -25,7 +25,6 @@ closeOrderHistoryModal.addEventListener('click', () => {
 
 const fetchOrderHistory = async () => {
     const token = localStorage.getItem('token');
-    console.log('Token:', token); 
 
     if (!token) {
         alert('Du är inte inloggad!');
@@ -37,11 +36,15 @@ const fetchOrderHistory = async () => {
             headers: { Authorization: `Bearer ${token}` }
         });
 
-        console.log('API-svar:', response.data);
-
         if (response.status === 200) {
             const orders = response.data.orders || [];
-            displayOrders(orders);
+            if (orders.length > 0) {
+                displayOrders(orders);
+            } else {
+                const noOrdersMessage = document.createElement('p');
+                noOrdersMessage.textContent = "Inga tidigare beställningar.";
+                orderHistoryList.appendChild(noOrdersMessage);
+            }
         }
     } catch (error) {
         console.error('Error fetching orderhistory:', error);
@@ -53,30 +56,24 @@ const displayOrders = (orders) => {
     const orderHistoryList = document.getElementById('orderHistoryList');
     orderHistoryList.innerHTML = '';
 
-    if (orders.length > 0) {
-        orders.forEach(order => {
-            const orderDiv = document.createElement('div');
-            orderDiv.classList.add('order');
+    orders.forEach(order => {
+        const orderDiv = document.createElement('div');
+        orderDiv.classList.add('order');
 
-            const orderId = document.createElement('p');
-            orderId.textContent = `Order ID: ${order.id}`;
-            orderDiv.appendChild(orderId);
+        const orderId = document.createElement('p');
+        orderId.textContent = `Order ID: ${order.id}`;
+        orderDiv.appendChild(orderId);
 
-            const orderDate = document.createElement('p');
-            orderDate.textContent = `Beställningsdatum: ${new Date(order.date).toLocaleDateString()}`;
-            orderDiv.appendChild(orderDate);
+        const orderDate = document.createElement('p');
+        orderDate.textContent = `Beställningsdatum: ${new Date(order.date).toLocaleDateString()}`;
+        orderDiv.appendChild(orderDate);
 
-            const orderPrice = document.createElement('p');
-            orderPrice.textContent = `Totalt pris: ${order.totalPrice} SEK`;
-            orderDiv.appendChild(orderPrice);
+        const orderPrice = document.createElement('p');
+        orderPrice.textContent = `Totalt pris: ${order.totalPrice} SEK`;
+        orderDiv.appendChild(orderPrice);
 
-            orderHistoryList.appendChild(orderDiv);
-        });
-    } else {
-        const noOrdersMessage = document.createElement('p');
-        noOrdersMessage.textContent = "Inga tidigare beställningar.";
-        orderHistoryList.appendChild(noOrdersMessage);
-    }
+        orderHistoryList.appendChild(orderDiv);
+    });
 };
 
 const fetchCustomerData = async () => {
@@ -108,19 +105,17 @@ const fetchCustomerData = async () => {
 };
 
 editBtn.addEventListener('click', () => {
-
-    editName.placeholder = customerNameElement.textContent.trim() ? "" : "Namn...";
-    editEmail.placeholder = customerEmailElement.textContent.trim() ? "" : "Email...";
-    editPhone.placeholder = customerPhoneElement.textContent.trim() ? "" : "Telefon...";
-
     
+    editName.placeholder = customerNameElement.textContent.trim() || "Namn...";
+    editEmail.placeholder = customerEmailElement.textContent.trim() || "Email...";
+    editPhone.placeholder = customerPhoneElement.textContent.trim() || "Telefon...";
+
     editName.value = customerNameElement.textContent.trim() || "";
     editEmail.value = customerEmailElement.textContent.trim() || "";
     editPhone.value = customerPhoneElement.textContent.trim() || "";
 
     editProfileModal.style.display = "block";
 });
-
 closeModalBtn.addEventListener('click', () => {
     editProfileModal.style.display = "none";
 });
