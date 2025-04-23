@@ -148,7 +148,6 @@ saveProfileBtn.addEventListener('click', async () => {
         name: editName.value,
         email: editEmail.value,
         phone: editPhone.value,
-        address: editAddress.value,
     };
 
     const token = localStorage.getItem('token');
