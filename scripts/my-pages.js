@@ -25,6 +25,7 @@ closeOrderHistoryModal.addEventListener('click', () => {
 
 const fetchOrderHistory = async () => {
     const token = localStorage.getItem('token');
+    console.log('Token:', token); 
 
     if (!token) {
         alert('Du är inte inloggad!');
@@ -36,12 +37,14 @@ const fetchOrderHistory = async () => {
             headers: { Authorization: `Bearer ${token}` }
         });
 
+        console.log('API-svar:', response.data);
+
         if (response.status === 200) {
             const orders = response.data.orders || [];
             displayOrders(orders);
         }
     } catch (error) {
-        console.error('Fel vid hämtning av orderhistorik:', error);
+        console.error('Error fetching orderhistory:', error);
         alert('Något gick fel, försök igen senare.');
     }
 };
