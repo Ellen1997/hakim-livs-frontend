@@ -99,33 +99,52 @@ const displayOrders = (orders) => {
         orderHistoryList.appendChild(noOrdersMessage);
     }
 };
+
 const fetchCustomerData = async () => {
     const token = localStorage.getItem('token');
 
     if (!token) {
         alert('Du är inte inloggad!');
         window.location.href = 'index.html';
+        return;
     }
 
-    try {
-        const response = await axios.get('https://be-webshop-2025-fe-two.vercel.app/api/users', {
-            headers: { Authorization: `Bearer ${token}` },
-        });
+    let userName = localStorage.getItem('userName');
+    let userEmail = localStorage.getItem('userEmail');
+    let userPhone = localStorage.getItem('userPhone');
 
-        const user = response.data.user || {};
+    console.log('Hämtade uppgifter från localStorage:', { userName, userEmail, userPhone });
 
-        if (customerNameElement) 
-            customerNameElement.textContent = user.name || "Namn saknas";
-        if (customerEmailElement) 
-            customerEmailElement.textContent = user.email || "Email saknas";
-        if (customerPhoneElement) 
-            customerPhoneElement.textContent = user.phone || "Telefon saknas";
+    if (!userName || !userEmail || !userPhone) {
+        try {
+            const response = await axios.get('https://be-webshop-2025-fe-two.vercel.app/api/users', {
+                headers: { Authorization: `Bearer ${token}` },
+            });
 
-    } catch (error) {
-        console.error('Error fetching user data:', error);
-        alert('Något gick fel, försök igen senare.');
+            const user = response.data.user || {};
+
+            userName = user.name || "Namn saknas";
+            userEmail = user.email || "Email saknas";
+            userPhone = user.phone || "Telefon saknas";
+
+            localStorage.setItem('userName', userName);
+            localStorage.setItem('userEmail', userEmail);
+            localStorage.setItem('userPhone', userPhone);
+
+            console.log('Hämtade användardata från server:', { userName, userEmail, userPhone });
+        } catch (error) {
+            console.error('Error fetching user data:', error);
+            alert('Något gick fel, försök igen senare.');
+        }
     }
+
+    customerNameElement.textContent = userName;
+    customerEmailElement.textContent = userEmail;
+    customerPhoneElement.textContent = userPhone;
+
+    console.log('DOM uppdaterad med användardata:', { userName, userEmail, userPhone });
 };
+
 
 editBtn.addEventListener('click', () => {
     
