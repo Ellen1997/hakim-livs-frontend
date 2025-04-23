@@ -169,6 +169,7 @@ body {
 
 #editProfileModal input::placeholder {
   color: #a5a5a5;
+  font-style: italic;
 }
 
 #editProfileModal button {
