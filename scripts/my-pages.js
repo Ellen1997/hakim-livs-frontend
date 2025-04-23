@@ -106,13 +106,13 @@ const fetchCustomerData = async () => {
 
 editBtn.addEventListener('click', () => {
     
-    editName.placeholder = customerNameElement.textContent.trim() || "Namn...";
-    editEmail.placeholder = customerEmailElement.textContent.trim() || "Email...";
-    editPhone.placeholder = customerPhoneElement.textContent.trim() || "Telefon...";
-
     editName.value = customerNameElement.textContent.trim() || "";
     editEmail.value = customerEmailElement.textContent.trim() || "";
     editPhone.value = customerPhoneElement.textContent.trim() || "";
+
+    editName.placeholder = customerNameElement.textContent.trim() ? "" : "Namn...";
+    editEmail.placeholder = customerEmailElement.textContent.trim() ? "" : "Email...";
+    editPhone.placeholder = customerPhoneElement.textContent.trim() ? "" : "Telefon...";
 
     editProfileModal.style.display = "block";
 });
