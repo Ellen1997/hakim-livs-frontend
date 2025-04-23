@@ -52,7 +52,6 @@ const fetchOrderHistory = async () => {
 
 const displayOrders = (orders) => {
     const orderHistoryList = document.getElementById('orderHistoryList');
-    orderHistoryList.innerHTML = ''; 
 
     if (orders.length > 0) {
         orders.forEach(order => {
