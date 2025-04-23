@@ -165,12 +165,19 @@ saveProfileBtn.addEventListener('click', async () => {
             customerPhoneElement.textContent = updatedProfile.phone;
 
             editProfileModal.style.display = "none";
+            
+            localStorage.setItem('userName', updatedProfile.name);
+            localStorage.setItem('userEmail', updatedProfile.email);
+            localStorage.setItem('userPhone', updatedProfile.phone);
+
+            console.log('User info saved to localStorage: ', updatedProfile);
         }
     } catch (error) {
         console.error('Error updating profile:', error);
         alert('Något gick fel, försök igen senare.');
     }
 });
+
 
 logoutBtn.addEventListener('click', () => {
     localStorage.removeItem('token');
