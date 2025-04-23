@@ -51,6 +51,7 @@ const fetchOrderHistory = async () => {
 
 const displayOrders = (orders) => {
     const orderHistoryList = document.getElementById('orderHistoryList');
+    orderHistoryList.innerHTML = '';  
 
     if (orders.length > 0) {
         orders.forEach(order => {
@@ -58,16 +59,37 @@ const displayOrders = (orders) => {
             orderDiv.classList.add('order');
 
             const orderId = document.createElement('p');
-            orderId.textContent = `Order ID: ${order.id}`;
+            orderId.textContent = `Order ID: ${order._id || 'Ej tillgängligt'}`; 
             orderDiv.appendChild(orderId);
 
             const orderDate = document.createElement('p');
-            orderDate.textContent = `Beställningsdatum: ${new Date(order.createdAt).toLocaleDateString()}`;
+            orderDate.textContent = `Beställningsdatum: ${new Date(order.createdAt).toLocaleDateString() || 'Ej tillgängligt'}`;
             orderDiv.appendChild(orderDate);
 
             const orderPrice = document.createElement('p');
-            orderPrice.textContent = `Totalt pris: ${order.totalPrice} SEK`;
+            orderPrice.textContent = `Totalt pris: ${order.total || 'Ej tillgängligt'} SEK`;
             orderDiv.appendChild(orderPrice);
+
+            const productsList = document.createElement('div');
+            order.products.forEach(product => {
+                const productDiv = document.createElement('div');
+                
+                const productName = document.createElement('p');
+                productName.textContent = `Produktnamn: ${product.name || 'Ej tillgängligt'}`;
+                productDiv.appendChild(productName);
+                
+                const productPrice = document.createElement('p');
+                productPrice.textContent = `Pris: ${product.price || 'Ej tillgängligt'} SEK`;
+                productDiv.appendChild(productPrice);
+                
+                const productQuantity = document.createElement('p');
+                productQuantity.textContent = `Antal: ${product.quantity || 'Ej tillgängligt'}`;
+                productDiv.appendChild(productQuantity);
+
+                productsList.appendChild(productDiv);
+            });
+
+            orderDiv.appendChild(productsList);
 
             orderHistoryList.appendChild(orderDiv);
         });
@@ -77,7 +99,6 @@ const displayOrders = (orders) => {
         orderHistoryList.appendChild(noOrdersMessage);
     }
 };
-
 const fetchCustomerData = async () => {
     const token = localStorage.getItem('token');
 
