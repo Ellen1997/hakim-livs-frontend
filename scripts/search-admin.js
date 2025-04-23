@@ -2,7 +2,12 @@ let renderPage = async () => {
     const searchtermAdmin = sessionStorage.getItem("termAdmin"); 
     let productCardsContainer = document.querySelector("#admin-all-products-container"); 
     try {
-        let response = await axios.get(`https://hakim-livs-backend.vercel.app/api/products/search?q=${searchtermAdmin}`);
+        const token = localStorage.getItem("token");
+        let response = await axios.get(`https://hakim-livs-backend.vercel.app/api/products/search?q=${searchtermAdmin}`,  {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
         let products = response.data;
         console.log("Antal produkter:", products.length);
         console.log("Produkter:", products);
@@ -55,7 +60,12 @@ let renderPage = async () => {
             buttonImgDelete.width = 20;
 
             deleteButton.addEventListener("click", async () => {
-                await axios.delete(`https://hakim-livs-backend.vercel.app/api/products/${product._id}`);
+                const token = localStorage.getItem("token");
+                await axios.delete(`https://hakim-livs-backend.vercel.app/api/products/${product._id}`,  {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
                 productCard.remove();
             });
 
@@ -108,7 +118,12 @@ closeButton.addEventListener("click", () => {
 
 let fetchCategories = async () => {
     try {
-        let response = await axios.get("https://hakim-livs-backend.vercel.app/api/category");
+        const token = localStorage.getItem("token");
+        let response = await axios.get("https://hakim-livs-backend.vercel.app/api/category",  {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
         let categories = response.data;
         let categorySelect = document.querySelector("#admin-product-category");
 
@@ -149,7 +164,12 @@ editModal.querySelector("#save-product").addEventListener("click", async () => {
     };
     
     const productId = editModal.dataset.id;
-    await axios.put(`https://hakim-livs-backend.vercel.app/api/products/${productId}`, updatedProduct);
+    const token = localStorage.getItem("token");
+    await axios.put(`https://hakim-livs-backend.vercel.app/api/products/${productId}`, updatedProduct,  {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
 
     let updatedCard = document.querySelector(`[data-id="${productId}"]`);
     updatedCard.dataset.name = updatedProduct.name;

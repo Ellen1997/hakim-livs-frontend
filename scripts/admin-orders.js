@@ -2,7 +2,12 @@ const orderlistContainer = document.querySelector("#admin-orderlist-container");
 
 const renderOrders = async () => {
   try {
-    const response = await axios.get("https://hakim-livs-backend.vercel.app/api/orders/");
+    const token = localStorage.getItem("token");
+    const response = await axios.get("https://hakim-livs-backend.vercel.app/api/orders/", {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
     const orders = response.data;
 
     orders.forEach(order => {
