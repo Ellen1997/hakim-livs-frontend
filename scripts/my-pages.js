@@ -95,11 +95,11 @@ const fetchCustomerData = async () => {
         const user = response.data.user || {};
 
         if (customerNameElement) 
-            customerNameElement.textContent = user.name || "";
+            customerNameElement.textContent = user.name || "Namn saknas";
         if (customerEmailElement) 
-            customerEmailElement.textContent = user.email || "";
+            customerEmailElement.textContent = user.email || "Email saknas";
         if (customerPhoneElement) 
-            customerPhoneElement.textContent = user.phone || "";
+            customerPhoneElement.textContent = user.phone || "Telefon saknas";
 
     } catch (error) {
         console.error('Error fetching user data:', error);
