@@ -142,13 +142,17 @@ const fetchCustomerData = async () => {
 };
 
 editBtn.addEventListener('click', () => {
-    editName.value = customerNameElement.textContent.trim() || "Namn saknas";
-    editEmail.value = customerEmailElement.textContent.trim() || "Email saknas";
-    editPhone.value = customerPhoneElement.textContent.trim() || "Telefon saknas";
+    const nameValue = customerNameElement.textContent.trim() || "Namn saknas";
+    const emailValue = customerEmailElement.textContent.trim() || "Email saknas";
+    const phoneValue = customerPhoneElement.textContent.trim() || "Telefon saknas";
 
-    editName.placeholder = editName.value === "" ? "Namn..." : "";
-    editEmail.placeholder = editEmail.value === "" ? "Email..." : "";
-    editPhone.placeholder = editPhone.value === "" ? "Telefon..." : "";
+    editName.value = nameValue === "Namn saknas" ? "" : nameValue;
+    editEmail.value = emailValue === "Email saknas" ? "" : emailValue;
+    editPhone.value = phoneValue === "Telefon saknas" ? "" : phoneValue;
+
+    editName.placeholder = nameValue === "Namn saknas" ? "Namn..." : "";
+    editEmail.placeholder = emailValue === "Email saknas" ? "Email..." : "";
+    editPhone.placeholder = phoneValue === "Telefon saknas" ? "Telefon..." : "";
 
     editProfileModal.style.display = "block";
 });
