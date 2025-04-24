@@ -142,6 +142,9 @@ const fetchCustomerData = async () => {
 };
 
 editBtn.addEventListener('click', () => {
+    const nameValue = customerNameElement.textContent.trim() || "Namn saknas";
+    const emailValue = customerEmailElement.textContent.trim() || "Email saknas";
+    const phoneValue = customerPhoneElement.textContent.trim() || "Telefon saknas";
 
     editName.value = customerNameElement.textContent.trim() || "";
     editEmail.value = customerEmailElement.textContent.trim() || "";
