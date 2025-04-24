@@ -30,6 +30,7 @@ const fetchOrderHistory = async () => {
     if (!token) {
         alert('Du är inte inloggad!');
         window.location.href = 'index.html';
+        return;
     }
 
     try {
@@ -37,20 +38,21 @@ const fetchOrderHistory = async () => {
             headers: { Authorization: `Bearer ${token}` }
         });
 
-        console.log('API-svar:', response.data);
+        console.log('API-svar:', response.data); 
 
         if (response.status === 200) {
-            const orders = response.data.orders || [];
+            const orders = response.data || []; 
             displayOrders(orders); 
         }
     } catch (error) {
-        console.error('Error fetching orderhistory:', error);
+        console.error('Fel vid hämtning av orderhistorik:', error);
         alert('Något gick fel, försök igen senare.');
     }
 };
 
-
 const displayOrders = (orders) => {
+    
+    console.log('Ordrar att visa:', orders); 
 
     if (orders.length > 0) {
         orders.forEach(order => {
@@ -58,7 +60,7 @@ const displayOrders = (orders) => {
             orderDiv.classList.add('order');
 
             const orderId = document.createElement('p');
-            orderId.textContent = `Order ID: ${order._id}`; 
+            orderId.textContent = `Order ID: ${order._id}`;
             orderDiv.appendChild(orderId);
 
             const orderDate = document.createElement('p');
@@ -66,7 +68,7 @@ const displayOrders = (orders) => {
             orderDiv.appendChild(orderDate);
 
             const orderPrice = document.createElement('p');
-            orderPrice.textContent = `Totalt pris: ${order.total} SEK`; 
+            orderPrice.textContent = `Totalt pris: ${order.total} SEK`;
             orderDiv.appendChild(orderPrice);
 
             const productsList = document.createElement('div');
@@ -99,7 +101,6 @@ const displayOrders = (orders) => {
         orderHistoryList.appendChild(noOrdersMessage);
     }
 };
-
 
 const fetchCustomerData = async () => {
     const token = localStorage.getItem('token');
