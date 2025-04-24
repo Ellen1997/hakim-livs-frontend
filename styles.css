@@ -200,12 +200,12 @@ footer.footer {
   width: 100%;
   background: var(--button-blue);
   padding: 1rem;
-  position: relative; 
+  position: sticky;
+  bottom: 0; 
   z-index: 100; 
   text-align: center;
   clear: both;
 }
-
 
 .footer-container {
   margin-bottom: 0px auto;
