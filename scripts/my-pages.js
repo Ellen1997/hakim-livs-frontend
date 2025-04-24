@@ -52,8 +52,6 @@ const fetchOrderHistory = async () => {
 
 const displayOrders = (orders) => {
     
-    console.log('Ordrar att visa:', orders); 
-
     if (orders.length > 0) {
         orders.forEach(order => {
             const orderDiv = document.createElement('div');
@@ -141,7 +139,6 @@ const fetchCustomerData = async () => {
     customerEmailElement.textContent = userEmail;
     customerPhoneElement.textContent = userPhone;
 
-    console.log('DOM uppdaterad med användardata:', { userName, userEmail, userPhone });
 };
 
 
@@ -188,7 +185,6 @@ saveProfileBtn.addEventListener('click', async () => {
             localStorage.setItem('userEmail', updatedProfile.email);
             localStorage.setItem('userPhone', updatedProfile.phone);
 
-            console.log('User info saved to localStorage: ', updatedProfile);
         }
     } catch (error) {
         console.error('Error updating profile:', error);
