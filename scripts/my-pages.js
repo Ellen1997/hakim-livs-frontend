@@ -128,6 +128,7 @@ const fetchCustomerData = async () => {
             localStorage.setItem('userName', userName);
             localStorage.setItem('userEmail', userEmail);
             localStorage.setItem('userPhone', userPhone);
+            
         } catch (error) {
             console.error('Error fetching user data:', error);
             alert('Något gick fel, försök igen senare.');
@@ -192,6 +193,9 @@ saveProfileBtn.addEventListener('click', async () => {
 
 logoutBtn.addEventListener('click', () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('userName');
+    localStorage.removeItem('userEmail');
+    localStorage.removeItem('userPhone');
     window.location.href = 'index.html';
 });
 
