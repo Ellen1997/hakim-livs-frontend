@@ -200,9 +200,12 @@ footer.footer {
   width: 100%;
   background: var(--button-blue);
   padding: 1rem;
-  position: static;
+  position: relative; 
+  z-index: 100; 
   text-align: center;
+  clear: both;
 }
+
 
 .footer-container {
   margin-bottom: 0px auto;
@@ -244,24 +247,6 @@ footer.footer {
   padding: 20px;
 }
 
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin: 1rem;
-}
-
-.footer-links a {
-  text-decoration: none;
-  color: var(--box-color);
-}
-
-.footer-links a:hover {
-  color: var(--primary-button-text-color);
-  text-decoration: underline;
-}
-
-
 #orderHistoryList {
   margin-top: 20px;
 }
@@ -274,7 +259,6 @@ footer.footer {
   margin-bottom: 15px; 
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
-
 
 .products-list {
   margin-top: 10px;
