@@ -128,22 +128,19 @@ const fetchCustomerData = async () => {
             localStorage.setItem('userName', userName);
             localStorage.setItem('userEmail', userEmail);
             localStorage.setItem('userPhone', userPhone);
-
         } catch (error) {
             console.error('Error fetching user data:', error);
             alert('Något gick fel, försök igen senare.');
         }
     }
 
-    customerNameElement.textContent = userName;
-    customerEmailElement.textContent = userEmail;
-    customerPhoneElement.textContent = userPhone;
-
+    customerNameElement.textContent = userName !== "Namn saknas" ? userName : "";
+    customerEmailElement.textContent = userEmail !== "Email saknas" ? userEmail : "";
+    customerPhoneElement.textContent = userPhone !== "Telefon saknas" ? userPhone : "";
 };
 
-
 editBtn.addEventListener('click', () => {
-    
+
     editName.value = customerNameElement.textContent.trim() || "";
     editEmail.value = customerEmailElement.textContent.trim() || "";
     editPhone.value = customerPhoneElement.textContent.trim() || "";
@@ -154,6 +151,7 @@ editBtn.addEventListener('click', () => {
 
     editProfileModal.style.display = "block";
 });
+
 closeModalBtn.addEventListener('click', () => {
     editProfileModal.style.display = "none";
 });
@@ -180,11 +178,10 @@ saveProfileBtn.addEventListener('click', async () => {
             customerPhoneElement.textContent = updatedProfile.phone;
 
             editProfileModal.style.display = "none";
-            
+
             localStorage.setItem('userName', updatedProfile.name);
             localStorage.setItem('userEmail', updatedProfile.email);
             localStorage.setItem('userPhone', updatedProfile.phone);
-
         }
     } catch (error) {
         console.error('Error updating profile:', error);
