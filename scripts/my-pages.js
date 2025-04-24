@@ -51,6 +51,7 @@ const fetchOrderHistory = async () => {
 };
 
 const displayOrders = (orders) => {
+    orderHistoryList.innerHTML = '';
     
     if (orders.length > 0) {
         orders.forEach(order => {
@@ -128,7 +129,7 @@ const fetchCustomerData = async () => {
             localStorage.setItem('userName', userName);
             localStorage.setItem('userEmail', userEmail);
             localStorage.setItem('userPhone', userPhone);
-            
+
         } catch (error) {
             console.error('Error fetching user data:', error);
             alert('Något gick fel, försök igen senare.');
